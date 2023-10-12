@@ -1,0 +1,39 @@
+/* CSS для модального вікна */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* Додайте стилі для елементів модального вікна згідно ваших вимог */
+/* Наприклад, стилі для зображення обгортки, назви, автора, опису та посилань */
+
+/* CSS для закриваючої кнопки "x" в модальному вікні */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* CSS для зображення торговельного майданчика */
+/* Додаєте стилі для світлої/темної теми та hover-стану */
+
+/* CSS для кнопки "Додати до Shopping List" */
