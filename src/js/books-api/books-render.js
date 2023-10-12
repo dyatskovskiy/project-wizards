@@ -75,10 +75,15 @@ function onCategoryClick(e) {
   e.preventDefault();
   booksContainerEl.innerHTML = '';
   const selectedCategory = e.target.textContent.trim();
+  const currentCategory = document.querySelector('.current-category');
   if (selectedCategory === 'All categories') {
     renderTopBooks(topBooksData);
     return;
   }
+
+  currentCategory.classList.remove('current-category');
+  e.target.classList.add('current-category');
+
   const categoryBooksData = fetchBooksOfSelectedCategory(selectedCategory);
   booksContainerEl.innerHTML = '';
   renderBooksOfSelectedCategory(selectedCategory, categoryBooksData);
