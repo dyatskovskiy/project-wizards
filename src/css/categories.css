@@ -19,6 +19,12 @@
   letter-spacing: -0.32px;
 }
 
+.current-category {
+  color: #4f2ee8;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 @media screen and (min-width: 768px) {
   .categories__container {
     height: 472px;
