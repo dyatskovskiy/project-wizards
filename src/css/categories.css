@@ -1,5 +1,8 @@
 .categories__container {
   height: 228px;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 20px;
   overflow: scroll;
 }
 
@@ -14,4 +17,30 @@
   font-size: 16px;
   line-height: 1.125; /* 112.5% */
   letter-spacing: -0.32px;
+}
+
+@media screen and (min-width: 768px) {
+  .categories__container {
+    height: 472px;
+    max-width: 337px;
+    margin: 0;
+    padding: 0 20px 0 32px;
+    overflow: scroll;
+  }
+
+  .categories__list {
+    gap: 32px;
+  }
+
+  .categories__link {
+    font-size: 18px;
+    line-height: 1.33; /* 133.333% */
+    letter-spacing: -0.36px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .categories__container {
+    width: 356px;
+    padding-left: 24px;
+  }
 }
