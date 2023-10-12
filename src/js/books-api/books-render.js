@@ -73,6 +73,10 @@ renderTopBooks(topBooksData);
 
 function onCategoryClick(e) {
   e.preventDefault();
+  if (e.target.classList.contains('categories__list')) {
+    return;
+  }
+
   booksContainerEl.innerHTML = '';
   const selectedCategory = e.target.textContent.trim();
   const currentCategory = document.querySelector('.current-category');
