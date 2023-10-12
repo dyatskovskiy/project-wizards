@@ -1,7 +1,7 @@
 import { fetchTopBooks } from './books-api';
 import { fetchBooksOfSelectedCategory } from './books-api';
 
-const topBooksData = await fetchTopBooks();
+const topBooksData = fetchTopBooks();
 const booksContainerEl = document.querySelector('.books-container');
 const booksTitleEl = document.querySelector('.books-title');
 const categoryLink = document.querySelector('.categories__list');
@@ -9,35 +9,42 @@ const categoryLink = document.querySelector('.categories__list');
 categoryLink.addEventListener('click', onCategoryClick);
 
 async function renderTopBooks(data) {
-  booksTitleEl.innerHTML = styleLastWordOfTitle('Best Sellers Books');
-  const topBooksMarkup = await Promise.all(
-    data.map(async ({ books, list_name }) => {
-      return `
-        <p class="books-category-name">${list_name}</p>
-        <ul class="top-books-category-list">
-          ${await renderCategoryOfBooks(books)}
-        </ul>
-        <button class="see-more-btn" data-category="${list_name}"type="button">See more</button>`;
-    })
-  );
+  try {
+    data = await data;
 
-  booksContainerEl.insertAdjacentHTML('beforeend', topBooksMarkup.join(''));
-
-  const seeMoreButtons = document.querySelectorAll('.see-more-btn');
-  seeMoreButtons.forEach(button => {
-    button.addEventListener('click', onSeeMoreClick);
-  });
-
-  async function onSeeMoreClick(e) {
-    const selectedCategory = e.target.getAttribute('data-category');
-    const categoryBooksData = await fetchBooksOfSelectedCategory(
-      selectedCategory
+    booksTitleEl.innerHTML = styleLastWordOfTitle('Best Sellers Books');
+    const topBooksMarkup = await Promise.all(
+      data.map(async ({ books, list_name }) => {
+        return `
+          <p class="books-category-name">${list_name}</p>
+          <ul class="top-books-category-list category-list">
+            ${await renderCategoryOfBooks(books)}
+          </ul>
+          <button class="see-more-btn" data-category="${list_name}" type="button">See more</button>`;
+      })
     );
-    booksContainerEl.innerHTML = '';
-    renderBooksOfSelectedCategory(selectedCategory, categoryBooksData);
-    window.scrollTo(0, 0);
+
+    booksContainerEl.insertAdjacentHTML('beforeend', topBooksMarkup.join(''));
+
+    const seeMoreButtons = document.querySelectorAll('.see-more-btn');
+    seeMoreButtons.forEach(button => {
+      button.addEventListener('click', onSeeMoreClick);
+    });
+
+    async function onSeeMoreClick(e) {
+      const selectedCategory = e.target.getAttribute('data-category');
+      const categoryBooksData = await fetchBooksOfSelectedCategory(
+        selectedCategory
+      );
+      booksContainerEl.innerHTML = '';
+      renderBooksOfSelectedCategory(selectedCategory, categoryBooksData);
+      window.scrollTo(0, 0);
+    }
+  } catch (error) {
+    console.error(error);
   }
 }
+
 function styleLastWordOfTitle(textContent) {
   const words = textContent.split(' ');
   const lastWord = words.pop();
@@ -80,7 +87,7 @@ function onCategoryClick(e) {
 async function renderBooksOfSelectedCategory(title, data) {
   booksTitleEl.innerHTML = styleLastWordOfTitle(title);
   const booksOfSelectedCategoryMarkup = `
-  <ul class="books-category-list">
+  <ul class="books-category-list category-list">
     ${await renderCategoryOfBooks(await data)}
   </ul>`;
   booksContainerEl.insertAdjacentHTML(
