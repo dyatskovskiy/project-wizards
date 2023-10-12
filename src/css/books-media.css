@@ -1,0 +1,11 @@
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .top-books-category-list li:nth-child(-n + 3) {
+    display: list-item;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .top-books-category-list li.book-card {
+    display: list-item;
+  }
+}
