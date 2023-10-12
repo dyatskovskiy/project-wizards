@@ -1,6 +1,6 @@
-@media screen and (min-width: 768px) and (max-width: 1439px) {
+@media screen and (min-width: 768px) {
   .container {
-    width: 744px;
+    max-width: 744px;
   }
 
   .category-list {
@@ -26,5 +26,29 @@
 @media screen and (min-width: 1440px) {
   .top-books-category-list li.book-card {
     display: list-item;
+  }
+
+  .page-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 1016px;
+    padding-left: 0;
+    margin-left: 40px;
+  }
+
+  .category-list {
+    column-gap: 24px;
+  }
+
+  .book-card {
+    width: calc((100% - 96px) / 5);
+  }
+
+  .img-wrapper {
+    width: 100%;
+    height: 256px;
   }
 }
