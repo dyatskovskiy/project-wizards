@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./public/icon-book.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <title>Bookshelf</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <load src="./partials/header.html" />
+    <load src="./partials/categories.html" />
+    <load src="./partials/support.html" />
+    <load src="./partials/books.html" />
+    <load src="./partials/modal-window.html" />
+    <load src="./partials/sign-up.html" />
+
+    <script type="module" src="main.js"></script>
   </body>
 </html>
