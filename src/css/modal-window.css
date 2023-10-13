@@ -1,81 +1,63 @@
-/* Стилі для модального вікна */
-.modal {
-  display: none;
+.backdrop {
+  overflow: scroll;
   position: fixed;
-  top: 0;
-  left: 0;
+  padding: 20px;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 335px; /* Заданий ширина */
-  height: 762px; /* Заданий висота */
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 20px;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.35);
-  overflow: auto;
-}
-
-.close {
-  position: absolute;
+  background-color: transition background-color 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
   top: 0;
-  right: 0;
-  padding: 10px;
+  transition: opacity 250ms linear, visibility 250ms linear;
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container-modal {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 335px;
+  height: 762px;
+  position: relative;
+  border-radius: 18px;
+  border: 2px solid #111;
+  background: #fff;
+  box-shadow: 0px 0px 8.775463104248047px 0px rgba(0, 0, 0, 0.01),
+    0px 0px 18.17037010192871px 0px rgba(0, 0, 0, 0.02),
+    0px 0px 36.23749923706055px 0px rgba(0, 0, 0, 0.03),
+    0px 0px 71.02963256835938px 0px rgba(0, 0, 0, 0.03),
+    0px 0px 130.5995330810547px 0px rgba(0, 0, 0, 0.04),
+    0px 0px 223px 0px rgba(0, 0, 0, 0.05);
+}
+
+.modal-close {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0;
   cursor: pointer;
-  font-size: 24px;
-  color: #000;
-}
-
-.book-cover {
-  max-width: 100%;
-  height: auto;
-}
-
-.book-title {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.book-author {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.book-description {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.book-links {
-  margin-bottom: 20px;
-}
-
-.trade-link {
-  display: block;
-  font-size: 16px;
-  text-decoration: none;
-  color: #007bff;
-}
-
-.addToShoppingList {
-  display: block;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #ffffff;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-top: 20px;
-  cursor: pointer;
 }
 
-.addToShoppingList:hover {
-  background-color: #0056b3;
+.modal-soc-icon {
+  fill: #141414;
+}
+
+.modal-soc-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
 }
