@@ -12,14 +12,19 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <include src="./partials/header.html"> </include>
+    <include src="./partials/header.html"></include>
     <div class="page-wrapper">
-      <include src="./partials/categories.html"> </include>
-      <include src="./partials/support.html"> </include>
-      <include src="./partials/books.html"> </include>
+      <aside>
+        <include src="./partials/categories.html"></include>
+        <include src="./partials/support.html"></include>
+      </aside>
+
+      <main>
+        <include src="./partials/books.html"></include>
+      </main>
     </div>
-    <include src="./partials/modal-window.html"> </include>
-    <include src="./partials/sign-up.html"> </include>
+    <include src="./partials/modal-window.html"></include>
+    <include src="./partials/sign-up.html"></include>
 
     <script type="module" src="main.js"></script>
   </body>
