@@ -1,0 +1,81 @@
+/* Стилі для модального вікна */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 335px; /* Заданий ширина */
+  height: 762px; /* Заданий висота */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.35);
+  overflow: auto;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #000;
+}
+
+.book-cover {
+  max-width: 100%;
+  height: auto;
+}
+
+.book-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.book-author {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.book-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.book-links {
+  margin-bottom: 20px;
+}
+
+.trade-link {
+  display: block;
+  font-size: 16px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.addToShoppingList {
+  display: block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.addToShoppingList:hover {
+  background-color: #0056b3;
+}
