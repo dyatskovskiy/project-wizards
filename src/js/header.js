@@ -25,7 +25,7 @@ function onCloseMenuClick() {
 window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
   if (!e.matches) return;
   refs.mobileMenu.classList.remove('js-is-open');
-  refs.mobileMenu.classList.remove('js-is-hide')
+  refs.openMenuBtn.classList.remove('js-is-hide')
   refs.closeMenuBtn.classList.add('js-is-hide');
   // openMenuBtn.setAttribute('aria-expanded', false);
   // bodyScrollLock.enableBodyScroll(document.body);
