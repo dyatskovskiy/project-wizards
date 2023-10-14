@@ -3,7 +3,7 @@
     max-width: 744px;
   }
 
-  .category-list {
+  .books-list {
     display: flex;
     flex-wrap: wrap;
     column-gap: 25px;
@@ -40,7 +40,7 @@
     margin-left: 40px;
   }
 
-  .category-list {
+  .books-list {
     column-gap: 24px;
   }
 
