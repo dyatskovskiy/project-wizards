@@ -40,7 +40,11 @@ async function renderTopBooks(data) {
       );
       booksContainerEl.innerHTML = '';
       renderBooksOfSelectedCategory(selectedCategory, categoryBooksData);
-      window.scrollTo(0, 0);
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
   } catch (error) {
     Notify.failure('The required books not found, please try again');
