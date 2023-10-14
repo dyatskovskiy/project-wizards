@@ -5,7 +5,14 @@ const booksContainer = document.querySelector('.books-container');
 const modalWindow = document.querySelector('.backdrop'); // Замініть '.modal-window' на клас, який ви використовуєте для модального вікна
 const modalCloseButton = document.querySelector('.modal-close'); // Замініть '.modal-close' на клас для кнопки закриття
 const bookWrapper = document.querySelector('.book-data');
-const shopingList = [];
+let shopingList = [];
+const savedShoppingList = localStorage.getItem('booksShopingList');
+
+// Проверяем есть ли в localStorage массив с книгами, если есть присваиваем его значение массиву shopingList
+if (savedShoppingList) {
+  shopingList = JSON.parse(savedShoppingList);
+  console.log(shopingList);
+}
 
 booksContainer.addEventListener('click', onBookClick);
 
@@ -55,7 +62,7 @@ function bookRender({
       <button type="button" class="book-button">add to shopping list</button>
       <button type="button" class="remove-button visually-hidden">remove from the shopping list</button>
       <p class="congrats-text visually-hidden">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>`;
-  
+
   bookWrapper.innerHTML = markup;
 
   const bookButton = document.querySelector('.book-button');
@@ -68,8 +75,14 @@ function bookRender({
   const amazonLinkEl = document.querySelector('.amazon-by-link');
   const appleLinkEl = document.querySelector('.apple-books-by-link');
 
+  // Проверяем, если книга уже добавлена в список покупок
+  if (isBookInShoppingList(title)) {
+    bookButton.classList.add('visually-hidden');
+    removeButton.classList.remove('visually-hidden');
+  }
 
   bookButton.addEventListener('click', setShopingListToLocalStorage);
+  removeButton.addEventListener('click', removeFromShoppingList);
 
   function setShopingListToLocalStorage() {
     const bookData = {
@@ -82,24 +95,31 @@ function bookRender({
     };
     shopingList.push(bookData);
     setLocalStorage('booksShopingList', shopingList);
-    
-    bookButton.classList.toggle("visually-hidden");
-    removeButton.classList.toggle("visually-hidden");
-    congratsTextEl.classList.toggle("visually-hidden");
-    //localStorage.setItem('booksShopinkList', JSON.stringify(shopingList));
+
+    bookButton.classList.toggle('visually-hidden');
+    removeButton.classList.toggle('visually-hidden');
+    congratsTextEl.classList.toggle('visually-hidden');
+  }
+
+  function removeFromShoppingList() {
+    const bookTitle = bookTitleEl.textContent;
+    // Находим индекс книги в массиве shopingList
+    const index = shopingList.findIndex(item => item.title === bookTitle);
+    if (index !== -1) {
+      shopingList.splice(index, 1); // Удаляем книгу из массива
+      setLocalStorage('booksShopingList', shopingList);
+    }
+
+    // Показываем кнопку "add to shopping list" и скрываем "remove from the shopping list"
+    bookButton.classList.remove('visually-hidden');
+    removeButton.classList.add('visually-hidden');
   }
 }
 
-// function changeButton(btn1, btn2) {
-//   bookButton.classList.toggle("visually-hidden");
-//   removeButton.classList.toggle("visually-hidden");
-// }
-
-
+// Функция для проверки, добавлена ли книга в список покупок
 function setLocalStorage(key, value) {
   try {
-    const data = JSON.stringify(value);
-    localStorage.setItem(key, data);
+    localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
     console.error(error.message);
   }
@@ -108,18 +128,16 @@ function setLocalStorage(key, value) {
 function removeBook() {
   const bookTitleEl = document.querySelector('.title');
   const currentTitle = bookTitleEl.textContent;
-  const books = localStorage.getItem("booksShopingList");
+  const books = localStorage.getItem('booksShopingList');
   const parsedBooks = JSON.parse(books);
-  const indexOfBook = parsedBooks.findIndex(book => book.title === currentTitle);
-  
+  const indexOfBook = parsedBooks.findIndex(
+    book => book.title === currentTitle
+  );
+
   const updateBooks = parsedBooks.splice(indexOfBook, 1);
-  setLocalStorage("booksShopingList", JSON.stringify(updateBooks));
+  setLocalStorage('booksShopingList', JSON.stringify(updateBooks));
 }
 
-// {
-//   image:ссылка на изображение в карточке,
-//     title: значение h2 с классом title,
-//     author: значение p с классом автор,
-//     category: значение дата категори p с классом description,
-//     description: значение p с классом description,
-// }
+function isBookInShoppingList(title) {
+  return shopingList.some(book => book.title === title);
+}
