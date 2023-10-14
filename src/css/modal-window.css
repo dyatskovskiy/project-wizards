@@ -1,0 +1,64 @@
+.backdrop {
+  overflow: scroll;
+  position: fixed;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: transition background-color 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
+  top: 0;
+  transition: opacity 250ms linear, visibility 250ms linear;
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: none;
+}
+
+.container-modal {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 335px;
+  height: 762px;
+  position: relative;
+  border-radius: 18px;
+  border: 2px solid #111;
+  background: #fff;
+  box-shadow: 0px 0px 8.775463104248047px 0px rgba(0, 0, 0, 0.01),
+    0px 0px 18.17037010192871px 0px rgba(0, 0, 0, 0.02),
+    0px 0px 36.23749923706055px 0px rgba(0, 0, 0, 0.03),
+    0px 0px 71.02963256835938px 0px rgba(0, 0, 0, 0.03),
+    0px 0px 130.5995330810547px 0px rgba(0, 0, 0, 0.04),
+    0px 0px 223px 0px rgba(0, 0, 0, 0.05);
+}
+
+.modal-close {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: none;
+}
+
+.modal-soc-icon {
+  fill: #141414;
+}
+
+.modal-soc-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
