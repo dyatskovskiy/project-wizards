@@ -3,6 +3,8 @@ import { data } from "./support-data";
 const partnersList = document.querySelector('ol.support-list');
 const scrollContainer = document.querySelector('div.support-container');
 const scrollBtn = document.querySelector('button.support-btn');
+const scrollUpClass = 'support-btn-up';
+const scrollDownClass = 'support-btn-down';
 
 function renderPartners() {
     const html = data.map(({ title, url, img }, i) =>
@@ -19,6 +21,8 @@ function renderPartners() {
 }
 function scrollBtnClicked(event) {
     // TODO: implement it
+    scrollBtn.classList.toggle(scrollUpClass);
+    scrollBtn.classList.toggle(scrollDownClass);
 }
 
 scrollBtn.addEventListener('click', scrollBtnClicked);
