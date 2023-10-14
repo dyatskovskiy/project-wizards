@@ -70,10 +70,14 @@ function bookRender({
     const bookData = {
       img: bookImgEl.src,
       category: bookDescriptionEl.dataset.category,
-      //other elements
+      title: bookTitleEl.textContent,
+      author: bookAuthorEl.textContent,
+      amazon: amazonLinkEl.href,
+      apple: appleLinkEl.href,
     };
     shopingList.push(bookData);
-    localStorage.setItem('booksShopinkList', JSON.stringify(shopingList));
+    setLocalStorage('booksShopingList', shopingList);
+    //localStorage.setItem('booksShopinkList', JSON.stringify(shopingList));
   }
 }
 

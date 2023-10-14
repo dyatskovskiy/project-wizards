@@ -62,3 +62,47 @@
   visibility: hidden;
   opacity: 0;
 }
+
+.book-img {
+  width: 287px;
+  height: 408px;
+  border-radius: 8px;
+  background: lightgray 50% / cover no-repeat;
+  margin-bottom: 14px;
+}
+
+.title {
+  color: #111;
+  font-family: DM Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.64px;
+  margin-bottom: 4px;
+}
+
+.author {
+  color: #b4afaf;
+  font-family: DM Sans;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+  letter-spacing: -0.48px;
+  margin-bottom: 18px;
+}
+
+.description {
+  width: 287px;
+  height: 70px;
+  flex-shrink: 0;
+  color: #111;
+  font-family: DM Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.56px;
+  margin-bottom: 14px;
+}
