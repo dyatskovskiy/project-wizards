@@ -2,16 +2,22 @@ import { fetchBookById } from '../books-api/books-api';
 const booksContainer = document.querySelector('.books-container');
 
 // Вибір елементів DOM для модального вікна
-const modalWindow = document.querySelector('.backdrop'); // Замініть '.modal-window' на клас, який ви використовуєте для модального вікна
-const modalCloseButton = document.querySelector('.modal-close'); // Замініть '.modal-close' на клас для кнопки закриття
+const modalWindow = document.querySelector('.backdrop');
+const modalCloseButton = document.querySelector('.modal-close');
 const bookWrapper = document.querySelector('.book-data');
-const shopingList = [];
+let shopingList = [];
+const savedShoppingList = localStorage.getItem('booksShopingList');
+
+// Проверяем есть ли в localStorage массив с книгами, если есть присваиваем его значение массиву shopingList
+if (savedShoppingList) {
+  shopingList = JSON.parse(savedShoppingList);
+}
 
 booksContainer.addEventListener('click', onBookClick);
 
 // Функція для відкриття модального вікна з інформацією про книгу
 function openModal() {
-  modalWindow.style.display = 'block'; // Показуємо модальне вікно
+  modalWindow.style.display = 'block';
 
   // Додаємо обробник події для кнопки закриття модального вікна
   modalCloseButton.addEventListener('click', closeModal);
@@ -33,9 +39,9 @@ function onBookClick(e) {
     bookRender(bookData);
   });
 
-  // Викликаємо функцію відкриття модального вікна та передаємо їй дані про книгу
   openModal();
 }
+
 function bookRender({
   title,
   author,
@@ -54,8 +60,8 @@ function bookRender({
       </div>
       <button type="button" class="book-button">add to shopping list</button>
       <button type="button" class="remove-button visually-hidden">remove from the shopping list</button>
-      <p class="congrats-text visually-hidden">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>`;
-  
+      <p class="congrats-text visually-hidden">Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>`;
+
   bookWrapper.innerHTML = markup;
 
   const bookButton = document.querySelector('.book-button');
@@ -68,8 +74,14 @@ function bookRender({
   const amazonLinkEl = document.querySelector('.amazon-by-link');
   const appleLinkEl = document.querySelector('.apple-books-by-link');
 
+  // Проверяем, если книга уже добавлена в список покупок
+  if (isBookInShoppingList(title)) {
+    bookButton.classList.add('visually-hidden');
+    removeButton.classList.remove('visually-hidden');
+  }
 
   bookButton.addEventListener('click', setShopingListToLocalStorage);
+  removeButton.addEventListener('click', removeFromShoppingList);
 
   function setShopingListToLocalStorage() {
     const bookData = {
@@ -82,44 +94,41 @@ function bookRender({
     };
     shopingList.push(bookData);
     setLocalStorage('booksShopingList', shopingList);
-    
-    bookButton.classList.toggle("visually-hidden");
-    removeButton.classList.toggle("visually-hidden");
-    congratsTextEl.classList.toggle("visually-hidden");
-    //localStorage.setItem('booksShopinkList', JSON.stringify(shopingList));
+
+    bookButton.classList.toggle('visually-hidden');
+    removeButton.classList.toggle('visually-hidden');
+    congratsTextEl.classList.toggle('visually-hidden');
+  }
+
+  function removeFromShoppingList() {
+    const bookTitle = bookTitleEl.textContent;
+    // Находим индекс книги в массиве shopingList
+    const index = shopingList.findIndex(item => item.title === bookTitle);
+    if (index !== -1) {
+      shopingList.splice(index, 1); // Удаляем книгу из массива
+      setLocalStorage('booksShopingList', shopingList);
+    }
+
+    // Показываем кнопку "add to shopping list" и скрываем "remove from the shopping list"
+    bookButton.classList.remove('visually-hidden');
+    removeButton.classList.add('visually-hidden');
+
+    let savedShoppingList = localStorage.getItem('booksShopingList');
+    if (JSON.parse(savedShoppingList).length === 0) {
+      localStorage.removeItem('booksShopingList');
+    }
   }
 }
 
-// function changeButton(btn1, btn2) {
-//   bookButton.classList.toggle("visually-hidden");
-//   removeButton.classList.toggle("visually-hidden");
-// }
-
-
+// Функция для проверки, добавлена ли книга в список покупок
 function setLocalStorage(key, value) {
   try {
-    const data = JSON.stringify(value);
-    localStorage.setItem(key, data);
+    localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
     console.error(error.message);
   }
 }
 
-function removeBook() {
-  const bookTitleEl = document.querySelector('.title');
-  const currentTitle = bookTitleEl.textContent;
-  const books = localStorage.getItem("booksShopingList");
-  const parsedBooks = JSON.parse(books);
-  const indexOfBook = parsedBooks.findIndex(book => book.title === currentTitle);
-  
-  const updateBooks = parsedBooks.splice(indexOfBook, 1);
-  setLocalStorage("booksShopingList", JSON.stringify(updateBooks));
+function isBookInShoppingList(title) {
+  return shopingList.some(book => book.title === title);
 }
-
-// {
-//   image:ссылка на изображение в карточке,
-//     title: значение h2 с классом title,
-//     author: значение p с классом автор,
-//     category: значение дата категори p с классом description,
-//     description: значение p с классом description,
-// }
