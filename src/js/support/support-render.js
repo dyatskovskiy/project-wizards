@@ -7,7 +7,7 @@ const scrollBtn = document.querySelector('button.support-btn');
 function renderPartners() {
     const html = data.map(({ title, url, img }, i) =>
         `<li class="support-list-item">
-            <div class="support-icon">0${i + 1}</div>
+            <div class="support-number">0${i + 1}</div>
             <a href="${url}" class="support-logo">
                 <img src="${img}" class="partner-logo"
                     alt="${title}"
