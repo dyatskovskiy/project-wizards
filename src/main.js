@@ -4,6 +4,11 @@ import './js/categories-api/categories-api';
 import './js/categories-api/render';
 import './js/books-api/books-api';
 import './js/books-api/books-render';
+import './js/modal-window/modal-window';
+
+
+import './js/scroll-up';
+import './js/header'
 
 import './js/support/support-render';
 
@@ -13,3 +18,4 @@ import './js/support/support-render';
 // import {} from './js/help';
 
 // import {} from './js/refrs';
+
