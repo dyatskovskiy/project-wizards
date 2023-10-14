@@ -5,10 +5,10 @@ import { Notify } from 'notiflix';
 const topBooksData = fetchTopBooks();
 const booksContainerEl = document.querySelector('.books-container');
 const booksTitleEl = document.querySelector('.books-title');
-const categoryesList = document.querySelector('.categories__list');
-const categoryLinks = document.querySelectorAll('.categories__link');
+const categoryesListEl = document.querySelector('.categories__list');
+const categoryLinksEl = document.querySelectorAll('.categories__link');
 
-categoryesList.addEventListener('click', onCategoryClick);
+categoryesListEl.addEventListener('click', onCategoryClick);
 
 async function renderTopBooks(data) {
   try {
@@ -19,13 +19,12 @@ async function renderTopBooks(data) {
       data.map(async ({ books, list_name }) => {
         return `
           <p class="books-category-name">${list_name}</p>
-          <ul class="top-books-category-list category-list">
+          <ul class="top-books-category-list books-list">
             ${await renderCategoryOfBooks(books)}
           </ul>
           <button class="see-more-btn" data-category="${list_name}" type="button">See more</button>`;
       })
     );
-
     booksContainerEl.insertAdjacentHTML('beforeend', topBooksMarkup.join(''));
 
     const seeMoreButtons = document.querySelectorAll('.see-more-btn');
@@ -34,7 +33,6 @@ async function renderTopBooks(data) {
     });
 
     async function onSeeMoreClick(e) {
-      categoryLinks.forEach(link => link.classList.remove('current-category'));
       const selectedCategory = e.target.getAttribute('data-category');
 
       const categoryBooksData = await fetchBooksOfSelectedCategory(
@@ -86,11 +84,11 @@ function onCategoryClick(e) {
   const currentCategory = document.querySelector('.current-category');
   if (selectedCategory === 'All categories') {
     renderTopBooks(topBooksData);
-    setSurrentCategory(e, currentCategory);
+    setCurrentCategory(e, currentCategory);
     return;
   }
 
-  setSurrentCategory(e, currentCategory);
+  setCurrentCategory(e, currentCategory);
 
   const categoryBooksData = fetchBooksOfSelectedCategory(selectedCategory);
   booksContainerEl.innerHTML = '';
@@ -101,7 +99,7 @@ async function renderBooksOfSelectedCategory(title, data) {
   try {
     booksTitleEl.innerHTML = styleLastWordOfTitle(title);
     const booksOfSelectedCategoryMarkup = `
-  <ul class="books-category-list category-list">
+  <ul class="books-category-list books-list">
     ${await renderCategoryOfBooks(await data)}
   </ul>`;
     booksContainerEl.insertAdjacentHTML(
@@ -113,7 +111,7 @@ async function renderBooksOfSelectedCategory(title, data) {
   }
 }
 
-function setSurrentCategory(event, category) {
+function setCurrentCategory(event, category) {
   category.classList.remove('current-category');
   event.target.classList.add('current-category');
 }
