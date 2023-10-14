@@ -2,8 +2,8 @@ import { fetchBookById } from '../books-api/books-api';
 const booksContainer = document.querySelector('.books-container');
 
 // Вибір елементів DOM для модального вікна
-const modalWindow = document.querySelector('.backdrop'); // Замініть '.modal-window' на клас, який ви використовуєте для модального вікна
-const modalCloseButton = document.querySelector('.modal-close'); // Замініть '.modal-close' на клас для кнопки закриття
+const modalWindow = document.querySelector('.backdrop');
+const modalCloseButton = document.querySelector('.modal-close');
 const bookWrapper = document.querySelector('.book-data');
 let shopingList = [];
 const savedShoppingList = localStorage.getItem('booksShopingList');
@@ -18,7 +18,7 @@ booksContainer.addEventListener('click', onBookClick);
 
 // Функція для відкриття модального вікна з інформацією про книгу
 function openModal() {
-  modalWindow.style.display = 'block'; // Показуємо модальне вікно
+  modalWindow.style.display = 'block';
 
   // Додаємо обробник події для кнопки закриття модального вікна
   modalCloseButton.addEventListener('click', closeModal);
@@ -40,9 +40,9 @@ function onBookClick(e) {
     bookRender(bookData);
   });
 
-  // Викликаємо функцію відкриття модального вікна та передаємо їй дані про книгу
   openModal();
 }
+
 function bookRender({
   title,
   author,
@@ -61,7 +61,7 @@ function bookRender({
       </div>
       <button type="button" class="book-button">add to shopping list</button>
       <button type="button" class="remove-button visually-hidden">remove from the shopping list</button>
-      <p class="congrats-text visually-hidden">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>`;
+      <p class="congrats-text visually-hidden">Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>`;
 
   bookWrapper.innerHTML = markup;
 
