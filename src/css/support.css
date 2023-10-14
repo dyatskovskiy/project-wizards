@@ -1,5 +1,6 @@
 .support {
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 .support-container {
   color: white;
@@ -84,6 +85,19 @@
 }
 
 @media screen and (min-width: 768px) {
+  aside.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 32px;
+    margin: 40 auto 98px auto;
+    max-width: 768px;
+  }
+
+  .support {
+    margin-top: 0;
+  }
+
   .support-container {
     /* height: 474px; */
     padding: 24px 40px;
@@ -106,6 +120,7 @@
 
 @media screen and (min-width: 1440px) {
   aside.container {
+    display: block;
     min-width: 404px;
     max-width: 404px;
     margin: 0;
