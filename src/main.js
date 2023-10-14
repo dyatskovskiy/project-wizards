@@ -7,6 +7,7 @@ import './js/books-api/books-render';
 import './js/modal-window/modal-window';
 
 
+import './js/scroll-up';
 // import {} from './js/appi';
 // import {} from './js/auth';
 
