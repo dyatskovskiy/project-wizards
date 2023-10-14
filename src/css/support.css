@@ -1,0 +1,27 @@
+.support {
+  margin-top: 86px;
+}
+.support-container {
+  color: white;
+  width: 356px;
+  height: 474px;
+  padding: 26px 40px 24px 40px;
+  border-radius: 16px;
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+  box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
+}
+
+.support-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: calc(28 / 24);
+}
+
+.partner-logo {
+  max-height: 32px;
+  filter: brightness(0) invert(1);
+}
