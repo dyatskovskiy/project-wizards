@@ -1,50 +1,25 @@
-// modal-window.js
-
-// Вибір елементів DOM
-const backdrop = document.querySelector('[data-first-modal]');
-const modalCloseButton = document.querySelector('[data-first-modal-close]');
-
-// Функція для закриття модального вікна
-function closeFirstModal() {
-  backdrop.classList.add('is-hidden'); // Додаємо клас для сховання модального вікна
-  // Видаляємо обробники подій
-  backdrop.removeEventListener('click', closeFirstModal);
-  modalCloseButton.removeEventListener('click', closeFirstModal);
-  document.removeEventListener('keydown', handleKeyPress);
-}
-
-// Функція для обробки клавіші ESC
-function handleKeyPress(event) {
-  if (event.key === 'Escape') {
-    closeFirstModal();
-  }
-}
-
-// Додавання обробників подій
-backdrop.addEventListener('click', closeFirstModal);
-modalCloseButton.addEventListener('click', closeFirstModal);
-document.addEventListener('keydown', handleKeyPress);
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+import { fetchBookById } from "../books-api/books-api";
+const booksContainer = document.querySelector('.books-container');
 
 // Вибір елементів DOM для модального вікна
-const modalWindow = document.querySelector('.modal-window'); // Замініть '.modal-window' на клас, який ви використовуєте для модального вікна
+const modalWindow = document.querySelector('.backdrop'); // Замініть '.modal-window' на клас, який ви використовуєте для модального вікна
 const modalCloseButton = document.querySelector('.modal-close'); // Замініть '.modal-close' на клас для кнопки закриття
 const bookLinks = document.querySelectorAll('.book_link'); // Замініть '.book_link' на клас для посилень на книги
+const bookWrapper = document.querySelector('.book-data');
+
+booksContainer.addEventListener('click', onBookClick);
 
 // Функція для відкриття модального вікна з інформацією про книгу
-function openModal(bookData) {
+function openModal() {
   modalWindow.style.display = 'block'; // Показуємо модальне вікно
-
-  // Додайте код для заповнення модального вікна інформацією про книгу на основі даних bookData
 
   // Додаємо обробник події для кнопки закриття модального вікна
   modalCloseButton.addEventListener('click', closeModal);
 
   // Додаємо обробники подій для кожної книги
-  bookLinks.forEach(bookLink => {
-    bookLink.addEventListener('click', onBookClick);
-  });
+  // bookLinks.forEach(bookLink => {
+  //   bookLink.addEventListener('click', onBookClick);
+  // });
 }
 
 // Функція для закриття модального вікна
@@ -63,18 +38,35 @@ function closeModal() {
 // Функція для обробки кліку на книгу
 function onBookClick(e) {
   e.preventDefault();
-  const bookId = e.currentTarget.id; // Отримуємо ідентифікатор книги, яку клікнули
-  const bookData = // Отримайте дані про книгу на основі bookId (наприклад, з вашого API)
-
+  const bookLink = e.target.closest('.book_link');
+  // setLocalStorage("id", bookLink.id);
+  fetchBookById(bookLink.id).then(bookData => {
+    bookRender(bookData);
+  });
+   
   // Викликаємо функцію відкриття модального вікна та передаємо їй дані про книгу
-  openModal(bookData);
+  openModal();
+}
+function bookRender({title, author, book_image, description, buy_links}) {
+  const markup = `<img class="book-img" src="${book_image}" alt="${title}" />
+      <h2 class="title">${title}</h2>
+      <p class="author">${author}</p>
+      <p class="description">${description}</p>
+      <div class="link-wraper">
+        <a class="book-link link" href="${buy_links[0].url}">свг</a>
+         <a class="book-link link" href="${buy_links[1].url}">свг</a>
+         </div>
+         <button type="button" class="book-button">add to shopping list</button>`
+  bookWrapper.innerHTML = markup;
+  const bookButton = document.querySelector('.book-button');
+  bookButton.addEventListener('click', setLocalStorage);
 }
 
-// Додавання обробника події для відкриття модального вікна при завантаженні сторінки
-document.addEventListener('DOMContentLoaded', () => {
-  // Отримайте дані про книгу (наприклад, з вашого API)
-  const bookData = // Отримайте дані про книгу
-
-  // Викликаємо функцію відкриття модального вікна та передаємо їй дані про книгу
-  openModal(bookData);
-});
+function setLocalStorage(key, value) {
+  try {
+    const data = JSON.stringify(value);
+    localStorage.setItem(key, data);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
