@@ -11,7 +11,6 @@ const savedShoppingList = localStorage.getItem('booksShopingList');
 // Проверяем есть ли в localStorage массив с книгами, если есть присваиваем его значение массиву shopingList
 if (savedShoppingList) {
   shopingList = JSON.parse(savedShoppingList);
-  console.log(shopingList);
 }
 
 booksContainer.addEventListener('click', onBookClick);
@@ -113,6 +112,11 @@ function bookRender({
     // Показываем кнопку "add to shopping list" и скрываем "remove from the shopping list"
     bookButton.classList.remove('visually-hidden');
     removeButton.classList.add('visually-hidden');
+
+    let savedShoppingList = localStorage.getItem('booksShopingList');
+    if (JSON.parse(savedShoppingList).length === 0) {
+      localStorage.removeItem('booksShopingList');
+    }
   }
 }
 
@@ -123,19 +127,6 @@ function setLocalStorage(key, value) {
   } catch (error) {
     console.error(error.message);
   }
-}
-
-function removeBook() {
-  const bookTitleEl = document.querySelector('.title');
-  const currentTitle = bookTitleEl.textContent;
-  const books = localStorage.getItem('booksShopingList');
-  const parsedBooks = JSON.parse(books);
-  const indexOfBook = parsedBooks.findIndex(
-    book => book.title === currentTitle
-  );
-
-  const updateBooks = parsedBooks.splice(indexOfBook, 1);
-  setLocalStorage('booksShopingList', JSON.stringify(updateBooks));
 }
 
 function isBookInShoppingList(title) {
