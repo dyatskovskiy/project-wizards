@@ -53,10 +53,14 @@ function bookRender({
         <a class="book-link link apple-books-by-link" href="${buy_links[1].url}">свг</a>
       </div>
       <button type="button" class="book-button">add to shopping list</button>
-      <button type="button" class="book-button visually-hidden">remove from the shopping list</button>`;
+      <button type="button" class="remove-button visually-hidden">remove from the shopping list</button>
+      <p class="congrats-text visually-hidden">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>`;
+  
   bookWrapper.innerHTML = markup;
 
   const bookButton = document.querySelector('.book-button');
+  const removeButton = document.querySelector('.remove-button');
+  const congratsTextEl = document.querySelector('.congrats-text');
   const bookImgEl = document.querySelector('.book-img'); //+
   const bookTitleEl = document.querySelector('.title');
   const bookAuthorEl = document.querySelector('.author');
@@ -64,18 +68,33 @@ function bookRender({
   const amazonLinkEl = document.querySelector('.amazon-by-link');
   const appleLinkEl = document.querySelector('.apple-books-by-link');
 
+
   bookButton.addEventListener('click', setShopingListToLocalStorage);
 
   function setShopingListToLocalStorage() {
     const bookData = {
       img: bookImgEl.src,
       category: bookDescriptionEl.dataset.category,
-      //other elements
+      title: bookTitleEl.textContent,
+      author: bookAuthorEl.textContent,
+      amazon: amazonLinkEl.href,
+      apple: appleLinkEl.href,
     };
     shopingList.push(bookData);
-    localStorage.setItem('booksShopinkList', JSON.stringify(shopingList));
+    setLocalStorage('booksShopingList', shopingList);
+    
+    bookButton.classList.toggle("visually-hidden");
+    removeButton.classList.toggle("visually-hidden");
+    congratsTextEl.classList.toggle("visually-hidden");
+    //localStorage.setItem('booksShopinkList', JSON.stringify(shopingList));
   }
 }
+
+// function changeButton(btn1, btn2) {
+//   bookButton.classList.toggle("visually-hidden");
+//   removeButton.classList.toggle("visually-hidden");
+// }
+
 
 function setLocalStorage(key, value) {
   try {
@@ -85,6 +104,18 @@ function setLocalStorage(key, value) {
     console.error(error.message);
   }
 }
+
+function removeBook() {
+  const bookTitleEl = document.querySelector('.title');
+  const currentTitle = bookTitleEl.textContent;
+  const books = localStorage.getItem("booksShopingList");
+  const parsedBooks = JSON.parse(books);
+  const indexOfBook = parsedBooks.findIndex(book => book.title === currentTitle);
+  
+  const updateBooks = parsedBooks.splice(indexOfBook, 1);
+  setLocalStorage("booksShopingList", JSON.stringify(updateBooks));
+}
+
 // {
 //   image:ссылка на изображение в карточке,
 //     title: значение h2 с классом title,
