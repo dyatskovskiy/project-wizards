@@ -1,12 +1,14 @@
 import { fetchTopBooks } from './books-api';
 import { fetchBooksOfSelectedCategory } from './books-api';
+import { Notify } from 'notiflix';
 
 const topBooksData = fetchTopBooks();
 const booksContainerEl = document.querySelector('.books-container');
 const booksTitleEl = document.querySelector('.books-title');
-const categoryLink = document.querySelector('.categories__list');
+const categoryesList = document.querySelector('.categories__list');
+const categoryLinks = document.querySelectorAll('.categories__link');
 
-categoryLink.addEventListener('click', onCategoryClick);
+categoryesList.addEventListener('click', onCategoryClick);
 
 async function renderTopBooks(data) {
   try {
@@ -32,7 +34,9 @@ async function renderTopBooks(data) {
     });
 
     async function onSeeMoreClick(e) {
+      categoryLinks.forEach(link => link.classList.remove('current-category'));
       const selectedCategory = e.target.getAttribute('data-category');
+
       const categoryBooksData = await fetchBooksOfSelectedCategory(
         selectedCategory
       );
@@ -41,7 +45,7 @@ async function renderTopBooks(data) {
       window.scrollTo(0, 0);
     }
   } catch (error) {
-    console.error(error);
+    Notify.failure('The required books not found, please try again');
   }
 }
 
@@ -82,11 +86,11 @@ function onCategoryClick(e) {
   const currentCategory = document.querySelector('.current-category');
   if (selectedCategory === 'All categories') {
     renderTopBooks(topBooksData);
+    setSurrentCategory(e, currentCategory);
     return;
   }
 
-  currentCategory.classList.remove('current-category');
-  e.target.classList.add('current-category');
+  setSurrentCategory(e, currentCategory);
 
   const categoryBooksData = fetchBooksOfSelectedCategory(selectedCategory);
   booksContainerEl.innerHTML = '';
@@ -94,13 +98,22 @@ function onCategoryClick(e) {
 }
 
 async function renderBooksOfSelectedCategory(title, data) {
-  booksTitleEl.innerHTML = styleLastWordOfTitle(title);
-  const booksOfSelectedCategoryMarkup = `
+  try {
+    booksTitleEl.innerHTML = styleLastWordOfTitle(title);
+    const booksOfSelectedCategoryMarkup = `
   <ul class="books-category-list category-list">
     ${await renderCategoryOfBooks(await data)}
   </ul>`;
-  booksContainerEl.insertAdjacentHTML(
-    'beforeend',
-    booksOfSelectedCategoryMarkup
-  );
+    booksContainerEl.insertAdjacentHTML(
+      'beforeend',
+      booksOfSelectedCategoryMarkup
+    );
+  } catch (error) {
+    Notify.failure('The required books not found, please try again');
+  }
+}
+
+function setSurrentCategory(event, category) {
+  category.classList.remove('current-category');
+  event.target.classList.add('current-category');
 }
