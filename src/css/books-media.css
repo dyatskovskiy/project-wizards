@@ -34,6 +34,7 @@
   }
 
   .container {
+    min-width: 1016px;
     max-width: 1016px;
     padding-left: 0;
     margin-left: 40px;
