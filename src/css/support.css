@@ -21,7 +21,16 @@
   line-height: calc(28 / 24);
 }
 
+.support-title img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
 .partner-logo {
   max-height: 32px;
   filter: brightness(0) invert(1);
+}
+.support-list {
+  list-style-type: none;
 }
