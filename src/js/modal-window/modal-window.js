@@ -1,12 +1,13 @@
 import { fetchBookById } from '../books-api/books-api';
 const booksContainer = document.querySelector('.books-container');
+export const STORAGE_KEY = 'booksShopingList';
 
 // Вибір елементів DOM для модального вікна
 const modalWindow = document.querySelector('.backdrop');
 const modalCloseButton = document.querySelector('.modal-close');
 const bookWrapper = document.querySelector('.book-data');
 let shopingList = [];
-const savedShoppingList = localStorage.getItem('booksShopingList');
+const savedShoppingList = localStorage.getItem(STORAGE_KEY);
 
 // Проверяем есть ли в localStorage массив с книгами, если есть присваиваем его значение массиву shopingList
 if (savedShoppingList) {
@@ -96,7 +97,7 @@ function bookRender({
       apple: appleLinkEl.href,
     };
     shopingList.push(bookData);
-    setLocalStorage('booksShopingList', shopingList);
+    setLocalStorage(STORAGE_KEY, shopingList);
 
     bookButton.classList.toggle('visually-hidden');
     removeButton.classList.toggle('visually-hidden');
@@ -109,16 +110,16 @@ function bookRender({
     const index = shopingList.findIndex(item => item.title === bookTitle);
     if (index !== -1) {
       shopingList.splice(index, 1); // Удаляем книгу из массива
-      setLocalStorage('booksShopingList', shopingList);
+      setLocalStorage(STORAGE_KEY, shopingList);
     }
 
     // Показываем кнопку "add to shopping list" и скрываем "remove from the shopping list"
     bookButton.classList.remove('visually-hidden');
     removeButton.classList.add('visually-hidden');
 
-    let savedShoppingList = localStorage.getItem('booksShopingList');
+    let savedShoppingList = localStorage.getItem(STORAGE_KEY);
     if (JSON.parse(savedShoppingList).length === 0) {
-      localStorage.removeItem('booksShopingList');
+      localStorage.removeItem(STORAGE_KEY);
     }
   }
 }
