@@ -1,10 +1,10 @@
-.container {
+.container-shop-list {
   max-width: 375px;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
 }
-.shopping-list-title {
+.shop-list-title {
   color: #111;
   line-height: 1.18;
   font-size: 32px;
@@ -13,11 +13,11 @@
   margin-bottom: 40px;
 }
 
-.last-word {
+.last-word-shop-list {
   color: #4f2ee8;
 }
 
-.book-container {
+.books-container-shop-list {
   display: flex;
   width: 335px;
   height: 170px;
@@ -31,7 +31,7 @@
   position: relative;
 }
 
-img {
+.img-shop-list {
   width: 100px;
   height: 142px;
   position: absolute;
@@ -40,7 +40,7 @@ img {
   border-radius: 8px;
 }
 
-.title {
+.title-shop-list {
   width: 144px;
   height: 18px;
   position: absolute;
@@ -64,7 +64,7 @@ img {
   text-transform: uppercase;
 }
 
-.list-name {
+.list-name-shop-list {
   position: absolute;
   right: 106px;
   top: 36px;
@@ -78,7 +78,7 @@ img {
   letter-spacing: 0.36px;
 }
 
-.description {
+.description-shop-list {
   width: 193px;
   height: 68px;
   position: absolute;
@@ -97,7 +97,7 @@ img {
   letter-spacing: -0.56px;
 }
 
-.author {
+.author-shop-list {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,7 +115,7 @@ img {
   letter-spacing: -0.48px;
 }
 
-.links {
+.links-shop-list {
   display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -125,7 +125,7 @@ img {
       bottom: 14px;
 }
 
-.delete-btn {
+.delete-btn-shop-list {
   display: flex;
     align-items: flex-start;
     gap: 8px;
