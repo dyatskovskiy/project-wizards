@@ -1,4 +1,4 @@
-const key = 'booksShopingList';
+export const key = 'booksShopingList';
 const refs = {
   booksContainerShop: document.querySelector('.books-container-shop-list'),
 };
@@ -44,7 +44,6 @@ function createMarkup(books) {
     `;
     })
     .join('');
-
   refs.booksContainerShop.insertAdjacentHTML('beforeend', markup);
 }
 

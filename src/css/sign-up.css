@@ -1,0 +1,183 @@
+.registration-backdrop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(79, 46, 232, 1);
+  z-index: 101;
+}
+
+.registration-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 20px);
+  max-width: 579px;
+  transform: translate(calc(-50% - 10px), -50%) scale(1);
+  padding: 80px 40px 40px;
+  border: 2px solid darkblue;
+  background-color: #f6f6f6;
+  border-radius: 18px;
+}
+.registration-close-icon {
+  pointer-events: none;
+}
+
+.registration-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  stroke: darkblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.registration-modal-field + .registration-modal-field {
+  margin-top: 28px;
+}
+
+.registration-modal-field-wrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+.registration-modal-input {
+  width: 100%;
+  height: 64px;
+  padding: 18px 32px;
+  border: 2px solid #111;
+  border-radius: 40px;
+  color: #111;
+  font-size: 18px;
+  outline: none;
+  background-color: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.signup-btn {
+  border: none;
+  text-align: center;
+  text-transform: uppercase;
+  color: #f3f3f3;
+  padding: 20px;
+  width: 100%;
+  margin-top: 40px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #111;
+  letter-spacing: -1px;
+  border-radius: 40px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.registration-inner {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+.registration-link {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(17, 17, 17, 0.5);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.registration-link + .registration-link {
+  margin-left: 20px;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .registration-modal {
+    height: 384px;
+    padding: 40px 20px;
+  }
+  .registration-close-btn {
+    top: 14px;
+    right: 14px;
+    font-size: 16px;
+  }
+  .registration-modal-input {
+    height: 50px;
+  }
+
+  .registration-modal-field + .registration-modal-field {
+    margin-top: 24px;
+  }
+  .signup-btn {
+    padding: 12px;
+    font-size: 16px;
+    height: 50px;
+    line-height: 18px;
+    margin-top: 24px;
+  }
+
+  .registration-modal-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .registration-modal-input::placeholder {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .registration-inner {
+    margin-top: 14px;
+  }
+
+  .registration-link {
+    font-size: 14px;
+  }
+}
+.sign-up-btn {
+  color: #fff;
+  background: #4f2ee8;
+  border-radius: 36px;
+  justify-content: space-between;
+  align-items: center;
+  width: 184px;
+  height: 45px;
+  padding: 0 14px;
+  font-weight: 700;
+  display: flex;
+  position: relative;
+}
+.sign-out-btn {
+  color: #4f2ee8;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 18px;
+  justify-content: space-between;
+  align-items: center;
+  width: 184px;
+  height: 45px;
+  padding: 0 14px;
+  font-weight: 700;
+  display: flex;
+  position: absolute;
+}
+.visually-hidden {
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  border: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+}
