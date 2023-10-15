@@ -1,16 +1,9 @@
-
-/* ВРЕМЕННО */
-.temp-link {
-  display: flex;
-  font-size: 20px;
-  justify-content: center;
-}
 .categories__container {
   height: 228px;
   max-width: 375px;
   margin: 0 auto;
   padding: 0 20px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .categories__list {
@@ -38,7 +31,6 @@
     max-width: 337px;
     margin: 0;
     padding: 0 20px 0 32px;
-    overflow: scroll;
   }
 
   .categories__list {
@@ -56,4 +48,19 @@
     width: 356px;
     padding-left: 24px;
   }
+}
+
+/* Стилізація скроллбару */
+
+.categories__container::-webkit-scrollbar {
+  width: 8px; /* ширина полоски прокручування */
+}
+
+.categories__container::-webkit-scrollbar-track {
+  background: transparent; /* колір зони відстежування*/
+}
+
+.categories__container::-webkit-scrollbar-thumb {
+  background-color: #e0e0e0; /* колір бігунка */
+  border-radius: 12px; /* радіус бігунка */
 }

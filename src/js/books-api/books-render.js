@@ -1,12 +1,14 @@
 import { fetchTopBooks } from './books-api';
 import { fetchBooksOfSelectedCategory } from './books-api';
+import { Notify } from 'notiflix';
 
 const topBooksData = fetchTopBooks();
 const booksContainerEl = document.querySelector('.books-container');
 const booksTitleEl = document.querySelector('.books-title');
-const categoryLink = document.querySelector('.categories__list');
+const categoryesListEl = document.querySelector('.categories__list');
+const categoryLinksEl = document.querySelectorAll('.categories__link');
 
-categoryLink.addEventListener('click', onCategoryClick);
+categoryesListEl.addEventListener('click', onCategoryClick);
 
 async function renderTopBooks(data) {
   try {
@@ -17,13 +19,12 @@ async function renderTopBooks(data) {
       data.map(async ({ books, list_name }) => {
         return `
           <p class="books-category-name">${list_name}</p>
-          <ul class="top-books-category-list category-list">
+          <ul class="top-books-category-list books-list">
             ${await renderCategoryOfBooks(books)}
           </ul>
           <button class="see-more-btn" data-category="${list_name}" type="button">See more</button>`;
       })
     );
-
     booksContainerEl.insertAdjacentHTML('beforeend', topBooksMarkup.join(''));
 
     const seeMoreButtons = document.querySelectorAll('.see-more-btn');
@@ -33,15 +34,20 @@ async function renderTopBooks(data) {
 
     async function onSeeMoreClick(e) {
       const selectedCategory = e.target.getAttribute('data-category');
+
       const categoryBooksData = await fetchBooksOfSelectedCategory(
         selectedCategory
       );
       booksContainerEl.innerHTML = '';
       renderBooksOfSelectedCategory(selectedCategory, categoryBooksData);
-      window.scrollTo(0, 0);
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
   } catch (error) {
-    console.error(error);
+    Notify.failure('The required books not found, please try again');
   }
 }
 
@@ -82,11 +88,11 @@ function onCategoryClick(e) {
   const currentCategory = document.querySelector('.current-category');
   if (selectedCategory === 'All categories') {
     renderTopBooks(topBooksData);
+    setCurrentCategory(e, currentCategory);
     return;
   }
 
-  currentCategory.classList.remove('current-category');
-  e.target.classList.add('current-category');
+  setCurrentCategory(e, currentCategory);
 
   const categoryBooksData = fetchBooksOfSelectedCategory(selectedCategory);
   booksContainerEl.innerHTML = '';
@@ -94,13 +100,22 @@ function onCategoryClick(e) {
 }
 
 async function renderBooksOfSelectedCategory(title, data) {
-  booksTitleEl.innerHTML = styleLastWordOfTitle(title);
-  const booksOfSelectedCategoryMarkup = `
-  <ul class="books-category-list category-list">
+  try {
+    booksTitleEl.innerHTML = styleLastWordOfTitle(title);
+    const booksOfSelectedCategoryMarkup = `
+  <ul class="books-category-list books-list">
     ${await renderCategoryOfBooks(await data)}
   </ul>`;
-  booksContainerEl.insertAdjacentHTML(
-    'beforeend',
-    booksOfSelectedCategoryMarkup
-  );
+    booksContainerEl.insertAdjacentHTML(
+      'beforeend',
+      booksOfSelectedCategoryMarkup
+    );
+  } catch (error) {
+    Notify.failure('The required books not found, please try again');
+  }
+}
+
+function setCurrentCategory(event, category) {
+  category.classList.remove('current-category');
+  event.target.classList.add('current-category');
 }

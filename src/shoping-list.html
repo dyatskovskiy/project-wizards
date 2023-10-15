@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <include src="./partials/header.html"> </include>
+    <include src="./partials/support.html"> </include>
+    <include src="./partials/sign-up.html"> </include>
+
+
     <div class="container">
       <h1 class="shopping-list-title">
         Shopping <span class="last-word">List</span>
@@ -19,10 +24,24 @@
       <div class="books-container-shop"></div>
     </div>
 
-    <include src="./partials/header.html"> </include>
-    <include src="./partials/support.html"> </include>
-    <include src="./partials/sign-up.html"> </include>
+
+    <div class="shopping-wrap-desk">
+      <!-- Support Ukraine -->
+      <div class="shopping-wrap">
+          <h1 class="shopping-title">Shopping <span class="shopping-title-span">List</span></h1>
+          <div class="shopping-wrap-none">
+              <p class="shopping-text">This page is empty, add some books and proceed to order.</p>
+              <picture>
+                  <source media="(min-width: 768px)" srcset="
+                              ./public/books.png 1x,
+                              ./public/books-2x.png 2x" width="322" height="241" />
+                  <img srcset="./public/books-2x.png 2x" src="./public/books.png" alt="books" width="265"
+                      height="198" />
+              </picture>
+          </div>
+      </div>
+  </div>
 
     <script type="module" src="./js/shopping-list.js"></script>
   </body>
-</html>
+  </html>
