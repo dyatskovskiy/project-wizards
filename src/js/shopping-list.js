@@ -1,6 +1,6 @@
 const key = 'booksShopingList';
 const refs = {
-  booksContainerShop: document.querySelector('.books-container-shop'),
+  booksContainerShop: document.querySelector('.books-container-shop-list'),
 };
 
 function getBooks(key) {
