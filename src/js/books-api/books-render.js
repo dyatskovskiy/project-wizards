@@ -6,7 +6,6 @@ const topBooksData = fetchTopBooks();
 const booksContainerEl = document.querySelector('.books-container');
 const booksTitleEl = document.querySelector('.books-title');
 const categoryesListEl = document.querySelector('.categories__list');
-const categoryLinksEl = document.querySelectorAll('.categories__link');
 
 categoryesListEl.addEventListener('click', onCategoryClick);
 
@@ -34,6 +33,18 @@ async function renderTopBooks(data) {
 
     async function onSeeMoreClick(e) {
       const selectedCategory = e.target.getAttribute('data-category');
+      const categoryLinksEl = document.querySelectorAll('.categories__link');
+
+      categoryLinksEl.forEach(link => {
+        link.classList.remove('current-category');
+      });
+
+      const selectedCategoryLink = Array.from(categoryLinksEl).find(
+        link => link.textContent.trim() === selectedCategory
+      );
+      if (selectedCategoryLink) {
+        selectedCategoryLink.classList.add('current-category');
+      }
 
       const categoryBooksData = await fetchBooksOfSelectedCategory(
         selectedCategory
@@ -43,7 +54,7 @@ async function renderTopBooks(data) {
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   } catch (error) {
@@ -79,7 +90,7 @@ renderTopBooks(topBooksData);
 
 function onCategoryClick(e) {
   e.preventDefault();
-  if (e.target.classList.contains('categories__list')) {
+  if (!e.target.classList.contains('categories__link')) {
     return;
   }
 
