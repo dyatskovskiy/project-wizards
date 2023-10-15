@@ -1,10 +1,8 @@
-import { data } from "./support-data";
+import { data } from './support-data';
 
 const partnersList = document.querySelector('ol.support-list');
-const scrollContainer = document.querySelector('div.support-container');
+const scrollWrapper = document.querySelector('div.scroll-wrapper');
 const scrollBtn = document.querySelector('button.support-btn');
-const scrollUpClass = 'support-btn-up';
-const scrollDownClass = 'support-btn-down';
 
 function renderPartners() {
     const html = data.map(({ title, url, img }, i) =>
@@ -19,11 +17,13 @@ function renderPartners() {
         .join('');
     partnersList.insertAdjacentHTML('beforeend', html);
 }
+
 function scrollBtnClicked(event) {
-    // TODO: implement it
-    scrollBtn.classList.toggle(scrollUpClass);
-    scrollBtn.classList.toggle(scrollDownClass);
+    scrollWrapper.classList.toggle('scroll-bottom');
+    scrollBtn.classList.toggle('support-btn-up');
+    scrollBtn.classList.toggle('support-btn-down');
 }
 
 scrollBtn.addEventListener('click', scrollBtnClicked);
+
 renderPartners();
