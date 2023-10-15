@@ -35,6 +35,9 @@ function closeModal() {
 function onBookClick(e) {
   e.preventDefault();
   const bookLink = e.target.closest('.book_link');
+  if (!bookLink) {
+    return;
+  }
   fetchBookById(bookLink.id).then(bookData => {
     bookRender(bookData);
   });
