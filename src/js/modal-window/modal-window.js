@@ -53,7 +53,7 @@ function bookRender({
   buy_links,
   list_name,
 }) {
-  const markup = `<img class="book-img" src="${book_image}" alt="${title}" />
+  const markup = `<img class="modal-book-img" src="${book_image}" alt="${title}" />
       <h2 class="title">${title}</h2>
       <p class="author">${author}</p>
       <p class="description" data-category="${list_name}">${description}</p>
@@ -70,7 +70,7 @@ function bookRender({
   const bookButton = document.querySelector('.book-button');
   const removeButton = document.querySelector('.remove-button');
   const congratsTextEl = document.querySelector('.congrats-text');
-  const bookImgEl = document.querySelector('.book-img'); //+
+  const bookImgEl = document.querySelector('.modal-book-img'); //+
   const bookTitleEl = document.querySelector('.title');
   const bookAuthorEl = document.querySelector('.author');
   const bookDescriptionEl = document.querySelector('.description'); //+
