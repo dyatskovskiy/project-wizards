@@ -1,6 +1,6 @@
 import { fetchTopBooks } from './books-api';
 import { fetchBooksOfSelectedCategory } from './books-api';
-import { Notify } from 'notiflix';
+import { Notify, Loading } from 'notiflix';
 
 const topBooksData = fetchTopBooks();
 const booksContainerEl = document.querySelector('.books-container');
@@ -10,6 +10,9 @@ const categoryesListEl = document.querySelector('.categories__list');
 categoryesListEl.addEventListener('click', onCategoryClick);
 
 async function renderTopBooks(data) {
+  Loading.standard();
+  const loaderIcon = document.querySelector('.notiflix-loading');
+
   try {
     data = await data;
 
@@ -60,6 +63,8 @@ async function renderTopBooks(data) {
   } catch (error) {
     Notify.failure('The required books not found, please try again');
   }
+
+  loaderIcon.classList.add('visually-hidden');
 }
 
 function styleLastWordOfTitle(textContent) {
