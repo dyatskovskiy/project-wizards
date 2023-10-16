@@ -1,4 +1,5 @@
 import './support/support-render';
+import './header'
 export const key = 'booksShopingList';
 const booksArray = [];
 const refs = {
