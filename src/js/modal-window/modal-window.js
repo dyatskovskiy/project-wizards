@@ -8,6 +8,7 @@ const modalCloseButton = document.querySelector('.modal-close');
 const bookWrapper = document.querySelector('.book-data');
 let shopingList = [];
 const savedShoppingList = localStorage.getItem(STORAGE_KEY);
+const body = document.querySelector('body');
 
 // Проверяем есть ли в localStorage массив с книгами, если есть присваиваем его значение массиву shopingList
 if (savedShoppingList) {
@@ -20,18 +21,37 @@ booksContainer.addEventListener('click', onBookClick);
 function openModal() {
   modalWindow.style.display = 'block';
 
+  // Добавляем класс 'noscroll' к элементу body, чтобы предотвратить прокрутку фонового контента
+  body.classList.add('noscroll');
+
   // Додаємо обробник події для кнопки закриття модального вікна
   modalCloseButton.addEventListener('click', closeModal);
 }
+
+// Обробник події для кліку на .backdrop
+modalWindow.addEventListener('click', function (e) {
+  if (e.target === modalWindow) {
+    closeModal();
+  }
+});
 
 // Функція для закриття модального вікна
 function closeModal() {
   modalWindow.style.display = 'none'; // Сховуємо модальне вікно
 
+  // Убираем класс 'noscroll' с элемента body, чтобы разрешить прокрутку фонового контента
+  body.classList.remove('noscroll');
+
   // Видаляємо обробник події для кнопки закриття модального вікна
   modalCloseButton.removeEventListener('click', closeModal);
 }
-
+// Обробник події для клавіші "ESC"
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' || e.key === 'Esc') {
+    closeModal();
+  }
+});
+///////////
 // Функція для обробки кліку на книгу
 function onBookClick(e) {
   e.preventDefault();
@@ -54,17 +74,24 @@ function bookRender({
   buy_links,
   list_name,
 }) {
-  const markup = `<img class="modal-book-img" src="${book_image}" alt="${title}" />
+  const markup = `<div class="modal-cont">
+  <img class="modal-book-img" src="${book_image}" alt="${title}" />
+      <div class="info-cont">
       <h2 class="title">${title}</h2>
       <p class="author">${author}</p>
       <p class="description" data-category="${list_name}">${description}</p>
       <div class="link-wraper">
-        <a class="book-link link amazon-by-link" href="${buy_links[0].url}">свг</a>
-        <a class="book-link link apple-books-by-link" href="${buy_links[1].url}">свг</a>
+        <a class="book-link link amazon-by-link" href="${buy_links[0].url}"><img src="/src/img/image-amazon.svg" alt="amazon" /></a>
+        <a class="book-link link apple-books-by-link" href="${buy_links[1].url}"><img src="/src/img/image-apple.svg" alt="apple" /></a>
       </div>
-      <button type="button" class="book-button">add to shopping list</button>
-      <button type="button" class="remove-button visually-hidden">remove from the shopping list</button>
-      <p class="congrats-text visually-hidden">Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>`;
+      </div>
+      </div>
+      <div class="button-cont">
+      <button type="button" class="book-button book-btn ">add to shopping list</button>
+      <button type="button" class="remove-button book-btn  visually-hidden">remove from the shopping list</button>
+      <p class="congrats-text visually-hidden">Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
+      </div>
+      `;
 
   bookWrapper.innerHTML = markup;
 
@@ -116,6 +143,8 @@ function bookRender({
     // Показываем кнопку "add to shopping list" и скрываем "remove from the shopping list"
     bookButton.classList.remove('visually-hidden');
     removeButton.classList.add('visually-hidden');
+    // Приховуємо текст 'congrats-text'
+    congratsTextEl.classList.add('visually-hidden');
 
     let savedShoppingList = localStorage.getItem(STORAGE_KEY);
     if (JSON.parse(savedShoppingList).length === 0) {
