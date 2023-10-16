@@ -4,9 +4,7 @@ const refs = {
   mobileMenu: document.querySelector('.js-menu-container'),
 };
 
-console.log(refs.openMenuBtn);
-console.log(refs.closeMenuBtn);
-console.log(refs.mobileMenu);
+
 refs.openMenuBtn.addEventListener('click', onOpenMenuClick);
 refs.closeMenuBtn.addEventListener('click', onCloseMenuClick);
 
