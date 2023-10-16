@@ -8,7 +8,8 @@ import './js/modal-window/modal-window';
 
 
 import './js/scroll-up';
-import './js/header'
+import './js/header';
+
 // import {} from './js/appi';
 // import {} from './js/auth';
 

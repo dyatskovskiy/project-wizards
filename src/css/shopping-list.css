@@ -1,15 +1,13 @@
 .container-shop-list {
   max-width: 375px;
   margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 40px 20px;
 }
+
 .shop-list-title {
-  color: #111;
   line-height: 1.18;
   font-size: 32px;
   letter-spacing: -1.28px;
-  margin-top: 40px;
   margin-bottom: 40px;
 }
 
@@ -19,117 +17,154 @@
 
 .books-container-shop-list {
   display: flex;
-  width: 335px;
-  height: 170px;
-  padding: 30px 24px;
-  align-items: flex-start;
-  gap: 48px;
-  flex-shrink: 0;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.book-card-shop-list {
+  display: flex;
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
   background: #fff;
+  padding: 14px;
+  gap: 14px;
   position: relative;
 }
 
 .img-shop-list {
   width: 100px;
   height: 142px;
-  position: absolute;
-  left: 14px;
-  top: 14px;
   border-radius: 8px;
 }
 
-.title-shop-list {
-  width: 144px;
-  height: 18px;
-  position: absolute;
-  right: 63px;
-  top: 14px;
+.right-card-part {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  overflow: hidden;
-  color: #111;
-  text-overflow: ellipsis;
-  whitespace: nowrap;
-  font-family: DM Sans;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.125;
-  /* 112.5% */
-  letter-spacing: -0.64px;
-  text-transform: uppercase;
+  justify-content: space-between;
 }
 
-.list-name-shop-list {
-  position: absolute;
-  right: 106px;
-  top: 36px;
+.title-shop-list {
+  max-width: 144px;
+  height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.125;
+  letter-spacing: -0.64px;
+  margin-bottom: 4px;
+}
+
+.category-shop-list {
   color: #b4afaf;
-  font-family: DM Sans;
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 1.167;
-  /* 116.667% */
   letter-spacing: 0.36px;
+  margin-bottom: 8px;
+  width: 165px;
+  height: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .description-shop-list {
   width: 193px;
   height: 68px;
-  position: absolute;
-  right: 14px;
-  bottom: 44px;
+  white-space: nowrap;
   overflow: hidden;
-  color: #111;
   text-overflow: ellipsis;
-  whitespace: nowrap;
-  font-family: DM Sans;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 1.286;
-  /* 128.571% */
   letter-spacing: -0.56px;
 }
 
-.author-shop-list {
+.card-bottom-shop-list {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  position: absolute;
-  left: 128px;
-  bottom: 14px;
+  justify-content: space-between;
+}
+
+.author-shop-list {
   color: #b4afaf;
-  font-family: DM Sans;
   font-size: 12px;
   font-style: italic;
-  font-weight: 400;
-  line-height: 14px;
-  /* 116.667% */
+  line-height: 1.167;
   letter-spacing: -0.48px;
 }
 
 .links-shop-list {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
   gap: 8px;
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
 }
 
 .delete-btn-shop-list {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
   position: absolute;
   right: 14px;
   top: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50;
+  background-color: #4f2ee8;
+  border: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .container-shop-list {
+    max-width: 744px;
+    padding: 40px 32px;
+  }
+
+  .shop-list-title {
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
+  }
+
+  .book-card-shop-list {
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .img-shop-list {
+    width: 116px;
+    height: 165px;
+  }
+
+  .title-shop-list {
+    max-width: 458px;
+  }
+
+  .category-shop-list {
+    margin-bottom: 14px;
+    width: 458px;
+  }
+
+  .description-shop-list {
+    width: 508px;
+    height: 53px;
+  }
+
+  .links-shop-list {
+    gap: 16px;
+  }
+
+  .delete-btn-shop-list {
+    right: 24px;
+    top: 24px;
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+.container-shop-list {
+  max-width: 996px;
+  padding: 0;
+  margin-left: auto;
+}
+.description-shop-list {
+  width: 808px;
+}
 }

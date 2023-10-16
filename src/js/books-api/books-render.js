@@ -1,6 +1,6 @@
 import { fetchTopBooks } from './books-api';
 import { fetchBooksOfSelectedCategory } from './books-api';
-import { Notify } from 'notiflix';
+import { Notify, Loading } from 'notiflix';
 
 const topBooksData = fetchTopBooks();
 const booksContainerEl = document.querySelector('.books-container');
@@ -8,6 +8,14 @@ const booksTitleEl = document.querySelector('.books-title');
 const categoryesListEl = document.querySelector('.categories__list');
 
 categoryesListEl.addEventListener('click', onCategoryClick);
+
+Loading.dots('Loading the books...', {
+  backgroundColor: '#11111130',
+  svgColor: '#4F2EE8',
+  svgSize: '150px',
+});
+
+const loaderIcon = document.querySelector('.notiflix-loading');
 
 async function renderTopBooks(data) {
   try {
@@ -32,6 +40,8 @@ async function renderTopBooks(data) {
     });
 
     async function onSeeMoreClick(e) {
+      loaderIcon.classList.remove('visually-hidden');
+
       const selectedCategory = e.target.getAttribute('data-category');
       const categoryLinksEl = document.querySelectorAll('.categories__link');
 
@@ -60,6 +70,8 @@ async function renderTopBooks(data) {
   } catch (error) {
     Notify.failure('The required books not found, please try again');
   }
+
+  loaderIcon.classList.add('visually-hidden');
 }
 
 function styleLastWordOfTitle(textContent) {
@@ -84,6 +96,8 @@ async function renderCategoryOfBooks(books) {
     })
   );
   return bookMarkup.join('');
+
+  loaderIcon.classList.add('visually-hidden');
 }
 
 renderTopBooks(topBooksData);
@@ -93,10 +107,12 @@ function onCategoryClick(e) {
   if (!e.target.classList.contains('categories__link')) {
     return;
   }
+  loaderIcon.classList.remove('visually-hidden');
 
   booksContainerEl.innerHTML = '';
   const selectedCategory = e.target.textContent.trim();
   const currentCategory = document.querySelector('.current-category');
+
   if (selectedCategory === 'All categories') {
     renderTopBooks(topBooksData);
     setCurrentCategory(e, currentCategory);
@@ -107,6 +123,7 @@ function onCategoryClick(e) {
 
   const categoryBooksData = fetchBooksOfSelectedCategory(selectedCategory);
   booksContainerEl.innerHTML = '';
+
   renderBooksOfSelectedCategory(selectedCategory, categoryBooksData);
 }
 
@@ -124,6 +141,8 @@ async function renderBooksOfSelectedCategory(title, data) {
   } catch (error) {
     Notify.failure('The required books not found, please try again');
   }
+
+  loaderIcon.classList.add('visually-hidden');
 }
 
 function setCurrentCategory(event, category) {
