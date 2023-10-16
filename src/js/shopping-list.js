@@ -7,11 +7,9 @@ const refs = {
 };
 
 function getBooks(key) {
-  try {
-    const savedBooks = localStorage.getItem(key);
+  const savedBooks = localStorage.getItem(key);
+  if (savedBooks) {
     booksArray.push(...JSON.parse(savedBooks));
-  } catch (error) {
-    console.error('Get state error: ', error.message);
   }
 }
 
