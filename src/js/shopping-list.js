@@ -1,3 +1,4 @@
+import './support/support-render';
 export const key = 'booksShopingList';
 const booksArray = [];
 const refs = {
