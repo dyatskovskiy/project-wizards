@@ -1,4 +1,4 @@
-const key = 'booksShopingList';
+export const key = 'booksShopingList';
 const booksArray = [];
 const refs = {
   booksContainerShop: document.querySelector('.books-container-shop-list'),
@@ -54,7 +54,6 @@ function createMarkup(books) {
       `;
     })
     .join('');
-
   refs.booksContainerShop.insertAdjacentHTML('beforeend', markup);
 
   refs.booksContainerShop.addEventListener('click', onDeleteBtnClick);

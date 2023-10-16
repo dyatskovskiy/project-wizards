@@ -1,0 +1,64 @@
+<div class="sign-up-block">
+  <button type="button" class="sign-up-btn">
+    <span class="sign-up-btn-text">Sign up</span>
+  </button>
+
+  <button type="button" class="user-btn visually-hidden">
+    <span class="userName">Stephan</span>
+  </button>
+
+  <button type="button" class="sign-out-btn sign-out-des visually-hidden">
+    <span class="sign-up-btn-text">Log out</span>
+  </button>
+</div>
+
+<div class="registration-backdrop is-hidden">
+  <div class="registration-modal">
+    <button class="registration-close-btn" type="button"></button>
+
+    <form class="registration-modal-form">
+      <div class="registration-modal-field">
+        <label for="user-name"></label>
+        <input
+          type="text"
+          id="user-name"
+          class="registration-modal-input"
+          name="userName"
+          placeholder="Name"
+        />
+      </div>
+
+      <div class="registration-modal-field">
+        <label for="user-name"></label>
+        <div class="registration-modal-field-wrapper">
+          <input
+            type="email"
+            id="user-email"
+            class="registration-modal-input"
+            placeholder="Email"
+            name="userEmail"
+          />
+        </div>
+      </div>
+
+      <div class="registration-modal-field">
+        <label for="user-name"></label>
+        <div class="registration-modal-field-wrapper">
+          <input
+            type="password"
+            id="user-password"
+            class="registration-modal-input"
+            name="userPassword"
+            placeholder="Password"
+          />
+        </div>
+      </div>
+      <button class="signup-btn" type="submit">Sign up</button>
+    </form>
+
+    <div class="registration-inner">
+      <button type="button" class="sing-link sing-up-link">Sing up</button>
+      <button type="button" class="sing-link sing-in-link">Sing in</button>
+    </div>
+  </div>
+</div>
