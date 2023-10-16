@@ -2,6 +2,7 @@ import { fetchBookById } from '../books-api/books-api';
 const booksContainer = document.querySelector('.books-container');
 export const STORAGE_KEY = 'booksShopingList';
 
+
 // Вибір елементів DOM для модального вікна
 const modalWindow = document.querySelector('.backdrop');
 const modalCloseButton = document.querySelector('.modal-close');
@@ -9,6 +10,9 @@ const bookWrapper = document.querySelector('.book-data');
 let shopingList = [];
 const savedShoppingList = localStorage.getItem(STORAGE_KEY);
 const body = document.querySelector('body');
+
+const amazonLink = new URL('../../img/stores-icons/amazon.png', import.meta.url);
+const appleLink = new URL('../../img/stores-icons/apple.png', import.meta.url);
 
 // Проверяем есть ли в localStorage массив с книгами, если есть присваиваем его значение массиву shopingList
 if (savedShoppingList) {
@@ -81,8 +85,8 @@ function bookRender({
       <p class="author">${author}</p>
       <p class="description" data-category="${list_name}">${description}</p>
       <div class="link-wraper">
-        <a class="book-link link amazon-by-link" href="${buy_links[0].url}"><img src="/src/img/image-amazon.svg" alt="amazon" /></a>
-        <a class="book-link link apple-books-by-link" href="${buy_links[1].url}"><img src="/src/img/image-apple.svg" alt="apple" /></a>
+        <a class="book-link link amazon-by-link" href="${buy_links[0].url}"><img src="${amazonLink}" alt="Amazon" /></a>
+        <a class="book-link link apple-books-by-link" href="${buy_links[1].url}"><img src="${appleLink}" alt="Apple" /></a>
       </div>
       </div>
       </div>
@@ -122,7 +126,11 @@ function bookRender({
       author: bookAuthorEl.textContent,
       amazon: amazonLinkEl.href,
       apple: appleLinkEl.href,
+      description: bookDescriptionEl.textContent,
+
     };
+
+
     shopingList.push(bookData);
     setLocalStorage(STORAGE_KEY, shopingList);
 
@@ -165,3 +173,5 @@ function setLocalStorage(key, value) {
 function isBookInShoppingList(title) {
   return shopingList.some(book => book.title === title);
 }
+
+
