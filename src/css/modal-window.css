@@ -107,7 +107,7 @@
 
 .description {
   width: 287px;
-  min-height: 70px;
+  /* min-height: 70px; */
   flex-shrink: 0;
   color: #111;
   font-size: 14px;
@@ -128,9 +128,12 @@
   height: 19px;
   background: lightgray 0.741px 0px / 97.61% 100% no-repeat;
   mix-blend-mode: luminosity;
+  background-color: transparent;
 }
+
 .amazon-by-link:hover {
-  background: lightgray 0.741px 0px / 97.61% 100% no-repeat;
+  width: 62px;
+  height: 19px;
   mix-blend-mode: luminosity;
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
 }
@@ -140,10 +143,9 @@
   height: 32px;
   background: lightgray 0px -0.889px / 100% 105.556% no-repeat;
   mix-blend-mode: luminosity;
+  background-color: transparent;
 }
 .apple-books-by-link:hover {
-  background: lightgray 0px -0.889px / 100% 105.556% no-repeat;
-  mix-blend-mode: luminosity;
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
 }
 
