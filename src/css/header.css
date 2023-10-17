@@ -23,6 +23,9 @@
 
 .header-logo-text {
     fill: var(--black-text-color);
+
+.header-logo-icon {
+    margin-right: 8px;
 }
 
 .header-switch-li:first-child{
