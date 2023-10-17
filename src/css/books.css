@@ -27,6 +27,7 @@
 }
 
 .img-wrapper {
+  position: relative;
   width: 335px;
   height: 485px;
   border-radius: 8px;
@@ -37,6 +38,10 @@
 .book-img {
   width: 100%;
   height: 100%;
+}
+
+.quick-view-box {
+  display: none;
 }
 
 .book-title {
