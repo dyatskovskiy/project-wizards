@@ -88,6 +88,7 @@ async function renderCategoryOfBooks(books) {
           <a  id="${_id}" href="#" class="book_link">  
             <div class="img-wrapper">
               <img class="book-img" src="${book_image}" alt="book ${title}">
+              <p class="quick-view-box">quick view</p>
             </div>
             <p class="book-title">${title}</p>
             <p class="book-author">${author}</p>
