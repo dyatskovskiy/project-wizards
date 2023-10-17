@@ -43,7 +43,7 @@
 }
 @media screen and (min-width: 1440px) {
   .categories__container {
-    width: 356px;
+    min-width: 356px;
   }
 }
 

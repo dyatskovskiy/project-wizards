@@ -1,48 +1,55 @@
-a {
-    text-decoration: none;
-}
-ul {
-    list-style: none;
-    padding-inline-start: 0;
-}
+
 
 .header {
-    display: flex;
-    align-items: center;
-    height: 64px;
     border: 1.5px solid #111111;
     border-radius: 0px 0px 8px 8px;
 }
+
+
 .container-header {
+    max-width: 375px;
+    padding: 20px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    padding: 0 16px;
+    justify-content: space-between;
 }
-@media screen and (max-width: 767.98px) {
-    .container-header {
-    margin: 0 auto;
-    max-width: 428px;
 
+.header-logo {
+    display: flex;
+    align-items: center;
 }
+
+.header-switch-li:first-child{
+    margin-right: 14px;
 }
 
 @media screen and (min-width: 768px) {
-    .header .container-header {
-        padding-left: 32px;
-        padding-right: 32px;
-        max-width: 768px;
-        padding: 0;
-    }
+    .container-header {
+    padding: 14px 32px 13px 32px;
+    max-width: 768px;
 }
+
+.header-logo{
+    margin-right: 40px;
+}
+
+.header-switch-li:first-child{
+    margin: 0;
+}
+}
+
 @media screen and (min-width: 1440px) {
-    .header .container-header {
-        padding-left: 24px;
-        padding-right: 24px;
+    .container-header {
+        padding: 14px 24px 13px 24px;
         max-width: 1440px;
-        padding: 0;
+    }
+
+    .header-logo{
+        margin-right: 76px;
     }
 }
+
 
 .header-logo-svg {
     height: 28px;
@@ -50,13 +57,11 @@ ul {
 }
 @media screen and (min-width: 768px) and (max-width: 1439.98px) {
     .header-logo-svg {
-        margin-left: 32px;
         margin-right: 40px;
     }
 }
 @media screen and (min-width: 1440px) {
     .header-logo-svg {
-        margin-left: 24px;
         margin-right: 76px;
     }
 }
@@ -236,33 +241,17 @@ ul {
 }
 @media screen and (min-width: 320px) {
     .container_switch {
-        margin-left: 144px;
     }
 }
 @media screen and (min-width: 768px) {
     .container_switch {
-        margin-left: 87px;
     }
 }
 @media screen and (min-width: 1440px) {
     .container_switch {
-        margin-left: 745px;
     }
 }
 
-.header-switch-li {
-    display: flex;
-}
-
-.header-switch-li:first-child{
-    margin-right: 14px;
-}
-
-@media screen and (min-width: 768px) {
-    .header-switch-li:first-child {
-        margin-right: 24px;
-    }
-}
 
 .menu-btn-wrapper {
     margin-right: 0;
