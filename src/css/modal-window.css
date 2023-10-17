@@ -23,7 +23,10 @@
   padding: 40px 24px;
   max-width: 335px;
   min-height: 762px;
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 18px;
   border: 2px solid #111;
   background: #fff;
