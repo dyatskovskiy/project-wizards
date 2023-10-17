@@ -20,6 +20,10 @@
     align-items: center;
 }
 
+.header-logo-icon {
+    margin-right: 8px;
+}
+
 .header-switch-li:first-child{
     margin-right: 14px;
 }
