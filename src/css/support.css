@@ -146,8 +146,8 @@
 @media screen and (min-width: 1440px) {
   aside.container {
     display: block;
-    min-width: 404px;
-    max-width: 404px;
+    min-width: 0;
+    max-width: 380px;
     margin: 0;
     padding-left: 24px;
     padding-right: 24px;
