@@ -9,3 +9,4 @@ import './js/support/support-render';
 import './js/scroll-up';
 import './js/header';
 import './js/auth-firebase/auth';
+import './js/dark-theme';

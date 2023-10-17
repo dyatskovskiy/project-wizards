@@ -1,8 +1,9 @@
 
 
 .header {
-    border: 1.5px solid #111111;
+    border: 1.5px solid var(--primary-text-color);
     border-radius: 0px 0px 8px 8px;
+    background-color: var(--header-bg-color);
 }
 
 
@@ -18,6 +19,10 @@
 .header-logo {
     display: flex;
     align-items: center;
+}
+
+.header-logo-text {
+    fill: var(--black-text-color);
 }
 
 .header-switch-li:first-child{
@@ -99,16 +104,21 @@
 }
 }
 
-.header-link-text.current{
+.header-link-text {
+    color: var(--primary-text-color);
+}
+
+.header-link-text.home.current{
+    color: var(--current-link-color);
     padding: 8px 16px;
     border-radius: 36px;
+    background-color:  #EAC645;
+    font-weight: 700;
 }
-.header-link-text.shopping.current {
+
+.header-link-text.shopping {
     position: relative;
     padding: 8px 44px 8px 16px;
-}
-.header-link-text.current {
-    background-color:  #EAC645;
 }
 
 .header-link-text.shopping {
@@ -116,6 +126,7 @@
     position: relative;
 }
 .header-shopping-icon {
+    fill: var(--primary-text-color);
     position: absolute;
     /* top: 7px; */
     /* right: 16px; */
@@ -138,7 +149,7 @@
 .burger-btn {
     width: 28px;
     height: 28px;
-    stroke: #111111;
+    stroke: var(--primary-text-color);
 }
 
 .menu-button:hover .burger-btn,
@@ -192,7 +203,7 @@
     border: none;
 }
 .close-icon {
-    stroke: #111111;
+    stroke: var(--primary-text-color);
     width: 28px;
     height: 28px;
 }

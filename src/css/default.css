@@ -1,6 +1,19 @@
+:root {
+  --body-bg-color: #f6f6f6;
+  --header-bg-color: #ffffff;
+  --current-link-color: #111111;
+  --categories-link-color: #11111199;
+  --black-text-color: #000000;
+  --primary-text-color: #111111;
+  --grey-text-color: #b4afaf;
+  --violet-text-color: #4f2ee8;
+  --yellow-color: #eac645;
+  --scroll-bar-color: #e0e0e0;
+}
+
 body {
   font-family: 'DM Sans';
-  background: #f6f6f6;
+  background: var(--body-bg-color);
 }
 
 .list {

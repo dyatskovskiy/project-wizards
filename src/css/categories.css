@@ -12,14 +12,14 @@
 }
 
 .categories__link {
-  color: rgba(17, 17, 17, 0.6);
+  color: var(--categories-link-color);
   font-size: 16px;
   line-height: 1.125; /* 112.5% */
   letter-spacing: -0.32px;
 }
 
 .current-category {
-  color: #4f2ee8;
+  color: var(--violet-text-color);
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -58,6 +58,6 @@
 }
 
 .categories__container::-webkit-scrollbar-thumb {
-  background-color: #e0e0e0; /* колір бігунка */
+  background-color: var(--scroll-bar-color); /* колір бігунка */
   border-radius: 12px; /* радіус бігунка */
 }
