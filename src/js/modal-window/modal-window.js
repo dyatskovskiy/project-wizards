@@ -11,8 +11,8 @@ let shopingList = [];
 const savedShoppingList = localStorage.getItem(STORAGE_KEY);
 const body = document.querySelector('body');
 
-const amazonLink = new URL('../../img/stores-icons/amazon.png', import.meta.url);
-const appleLink = new URL('../../img/stores-icons/apple.png', import.meta.url);
+const amazonLink = new URL('../../img/stores-icons/image-am.png', import.meta.url);
+const appleLink = new URL('../../img/stores-icons/image-ap.png', import.meta.url);
 
 // Проверяем есть ли в localStorage массив с книгами, если есть присваиваем его значение массиву shopingList
 if (savedShoppingList) {
