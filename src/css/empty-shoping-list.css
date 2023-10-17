@@ -50,16 +50,21 @@
         width: 349px;
     }
     .shopping-wrap-none {
-        display: flex;
         gap: 20px;
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
     .shopping-wrap-desk {
         padding: 40px 24px;
     }
     .shopping-wrap {
         margin-left: 40px;
+    }
+    .shopping-wrap-desk {
+        padding: 40px 0;
+    }
+    .shopping-wrap-none {
+        margin-left: 315px;
     }
 }
