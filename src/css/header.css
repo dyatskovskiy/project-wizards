@@ -239,19 +239,6 @@
     align-items: center;
     padding-inline-start: 0;
 }
-@media screen and (min-width: 320px) {
-    .container_switch {
-    }
-}
-@media screen and (min-width: 768px) {
-    .container_switch {
-    }
-}
-@media screen and (min-width: 1440px) {
-    .container_switch {
-    }
-}
-
 
 .menu-btn-wrapper {
     margin-right: 0;
