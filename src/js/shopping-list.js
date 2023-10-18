@@ -1,5 +1,6 @@
 import './support/support-render';
 import './header'
+import './dark-theme'
 export const key = 'booksShopingList';
 const booksArray = [];
 const amazonLink = new URL('../img/stores-icons/image-am.png', import.meta.url);
