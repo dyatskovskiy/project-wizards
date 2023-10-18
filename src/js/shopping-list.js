@@ -47,16 +47,18 @@ function createMarkup(books) {
                     href="${amazon}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    ><img class="amazon-img-shop-list" src="${amazonLink}" alt="Amazon" /></a
-                  >
+                    >
+                    <img class="amazon-img-shop-list" src="${amazonLink}" alt="Amazon">
+                  </a>
                 </li>
                 <li>
                   <a
                     href="${apple}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    ><img class="apple-img-shop-list" src="${appleLink}" alt="Apple"</a
-                  >
+                    >
+                    <img class="apple-img-shop-list" src="${appleLink}" alt="Apple">
+                  </a>
                 </li>
               </ul>
             </div>
@@ -76,7 +78,7 @@ function createMarkup(books) {
 }
 
 function onDeleteBtnClick(e) {
-  if (!e.target.classList.contains('delete-btn-shop-list')) {
+  if (!e.target.classList.contains('delete-btn-shop-list') && !e.target.classList.contains('trash-icon')) {
     return;
   }
 
