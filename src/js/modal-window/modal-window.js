@@ -1,6 +1,17 @@
 import { fetchBookById } from '../books-api/books-api';
+import {  Loading } from 'notiflix';
 const booksContainer = document.querySelector('.books-container');
 export const STORAGE_KEY = 'booksShopingList';
+
+Loading.dots('Loading the book...', {
+  backgroundColor: '#11111130',
+  svgColor: '#4F2EE8',
+  svgSize: '150px',
+  messageColor: '#111111',
+  messageFontSize: '16px'
+});
+
+const loaderIcon = document.querySelector('.notiflix-loading');
 
 
 // Вибір елементів DOM для модального вікна
@@ -11,8 +22,8 @@ let shopingList = [];
 const savedShoppingList = localStorage.getItem(STORAGE_KEY);
 const body = document.querySelector('body');
 
-const amazonLink = new URL('../../img/stores-icons/amazon.png', import.meta.url);
-const appleLink = new URL('../../img/stores-icons/apple.png', import.meta.url);
+const amazonLink = new URL('../../img/stores-icons/image-am.png', import.meta.url);
+const appleLink = new URL('../../img/stores-icons/image-ap.png', import.meta.url);
 
 // Проверяем есть ли в localStorage массив с книгами, если есть присваиваем его значение массиву shopingList
 if (savedShoppingList) {
@@ -58,11 +69,14 @@ document.addEventListener('keydown', function (e) {
 ///////////
 // Функція для обробки кліку на книгу
 function onBookClick(e) {
+
   e.preventDefault();
   const bookLink = e.target.closest('.book_link');
   if (!bookLink) {
     return;
   }
+  loaderIcon.classList.remove('visually-hidden');
+
   fetchBookById(bookLink.id).then(bookData => {
     bookRender(bookData);
   });
@@ -85,8 +99,8 @@ function bookRender({
       <p class="author">${author}</p>
       <p class="description" data-category="${list_name}">${description}</p>
       <div class="link-wraper">
-        <a class="book-link link amazon-by-link" href="${buy_links[0].url}"><img src="${amazonLink}" alt="Amazon" /></a>
-        <a class="book-link link apple-books-by-link" href="${buy_links[1].url}"><img src="${appleLink}" alt="Apple" /></a>
+        <a class="book-link link amazon-by-link" href="${buy_links[0].url}" target="_blank" rel="noopener noreferrer"><img src="${amazonLink}" alt="Amazon" /></a>
+        <a class="book-link link apple-books-by-link" href="${buy_links[1].url}" target="_blank" rel="noopener noreferrer"><img src="${appleLink}" alt="Apple" /></a>
       </div>
       </div>
       </div>
@@ -159,6 +173,8 @@ function bookRender({
       localStorage.removeItem(STORAGE_KEY);
     }
   }
+
+  loaderIcon.classList.add('visually-hidden');
 }
 
 // Функция для проверки, добавлена ли книга в список покупок

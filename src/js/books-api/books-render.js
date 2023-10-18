@@ -13,6 +13,8 @@ Loading.dots('Loading the books...', {
   backgroundColor: '#11111130',
   svgColor: '#4F2EE8',
   svgSize: '150px',
+  messageColor: '#111111',
+  messageFontSize: '16px'
 });
 
 const loaderIcon = document.querySelector('.notiflix-loading');
@@ -88,6 +90,7 @@ async function renderCategoryOfBooks(books) {
           <a  id="${_id}" href="#" class="book_link">  
             <div class="img-wrapper">
               <img class="book-img" src="${book_image}" alt="book ${title}">
+              <p class="quick-view-box">quick view</p>
             </div>
             <p class="book-title">${title}</p>
             <p class="book-author">${author}</p>
@@ -97,7 +100,6 @@ async function renderCategoryOfBooks(books) {
   );
   return bookMarkup.join('');
 
-  loaderIcon.classList.add('visually-hidden');
 }
 
 renderTopBooks(topBooksData);
