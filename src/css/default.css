@@ -9,6 +9,10 @@
   --violet-text-color: #4f2ee8;
   --yellow-color: #eac645;
   --scroll-bar-color: #e0e0e0;
+  --modal-window-color: #fff;
+  --bg-shoping-list: #f6f6f6;
+  --txt-shoping-list: #00000099;
+  --bottomtxt-modal-window: #11111180;
 }
 
 body {

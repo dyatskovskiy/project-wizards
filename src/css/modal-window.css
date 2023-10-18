@@ -28,8 +28,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 18px;
-  border: 2px solid #111;
-  background: #fff;
+  border: 2px solid var(--current-link-color);
+  background: var(--modal-window-color);
   box-shadow: 0px 0px 8.775463104248047px 0px rgba(0, 0, 0, 0.01),
     0px 0px 18.17037010192871px 0px rgba(0, 0, 0, 0.02),
     0px 0px 36.23749923706055px 0px rgba(0, 0, 0, 0.03),
@@ -49,14 +49,14 @@
   right: 12px;
   padding: 0;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: var(--modal-window-color);
   border: none;
 }
 
 .modal-soc-icon {
   width: 24px;
   height: 24px;
-  stroke: #111; /* Встановлює колір контуру SVG */
+  stroke: var(--primary-text-color); /* Встановлює колір контуру SVG */
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -88,7 +88,7 @@
 }
 
 .title {
-  color: #111;
+  color: var(--primary-text-color);
   font-size: 16px;
   font-weight: 700;
   line-height: 18px; /* 112.5% */
@@ -112,7 +112,7 @@
   width: 287px;
   /* min-height: 70px; */
   flex-shrink: 0;
-  color: #111;
+  color: var(--current-link-color);
   font-size: 14px;
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.56px;
@@ -161,8 +161,8 @@
   gap: 10px;
   border-radius: 40px;
   border: 2px solid #4f2ee8;
-  color: #111;
-  background-color: #fff;
+  color: var(--primary-text-color);
+  background-color: var(--modal-window-color);
   font-size: 14px;
   font-weight: 700;
   line-height: 18px; /* 128.571% */
@@ -194,7 +194,7 @@
 .congrats-text {
   display: flex;
   width: 242px;
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--bottomtxt-modal-window);
   text-align: center;
   font-size: 10px;
   font-weight: 400;

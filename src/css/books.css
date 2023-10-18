@@ -6,7 +6,7 @@
 }
 
 .books-title {
-  color: #111;
+  color: var(--current-link-color);
   line-height: 1.18;
   font-size: 32px;
   letter-spacing: -1.28px;
@@ -46,7 +46,7 @@
 
 .book-title {
   margin-bottom: 4px;
-  color: #111;
+  color: var(--current-link-color);
   font-size: 16px;
   font-weight: 700;
   line-height: 1.125;
@@ -71,7 +71,7 @@
   border: 2px solid #4f2ee8;
   border-radius: 40px;
   background-color: transparent;
-  color: #111;
+  color: var(--current-link-color);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.285;
