@@ -72,13 +72,15 @@
 
 .description-shop-list {
   width: 193px;
-  height: 68px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   font-size: 14px;
   line-height: 1.286;
   letter-spacing: -0.56px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  max-height: 68px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .card-bottom-shop-list {
