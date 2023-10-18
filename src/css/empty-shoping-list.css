@@ -1,5 +1,7 @@
 .shopping-wrap-desk {
-    padding: 40px 20px;
+    max-width: 375px;
+    padding: 0 20px;
+    margin: 0 auto;
 }
 .shopping-title {
     color: #111;
@@ -35,7 +37,8 @@
 }
 @media screen and (min-width: 768px) {
     .shopping-wrap-desk {
-        padding: 40px 32px;
+        max-width: 768px;
+        padding: 0 32px;
     }
     .shopping-title {
         font-size: 48px;
@@ -56,14 +59,14 @@
 
 @media screen and (min-width: 1440px) {
     .shopping-wrap-desk {
-        padding: 40px 24px;
+        min-width: 1060px;
+        max-width: 1060px;
+        padding: 0 24px 0 0;
     }
     .shopping-wrap {
         margin-left: 40px;
     }
-    .shopping-wrap-desk {
-        padding: 40px 0;
-    }
+
     .shopping-wrap-none {
         margin-left: 315px;
     }
