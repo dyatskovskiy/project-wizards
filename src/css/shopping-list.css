@@ -121,7 +121,7 @@
 }
 
 .amazon-img-shop-list:hover {
-  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
 }
 
 .apple-img-shop-list {
@@ -133,7 +133,7 @@
 }
 
 .apple-img-shop-list:hover {
-  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
 }
 
 .delete-btn-shop-list {
