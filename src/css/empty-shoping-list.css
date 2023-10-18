@@ -68,6 +68,7 @@
     }
 
     .shopping-wrap-none {
-        margin-left: 315px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
