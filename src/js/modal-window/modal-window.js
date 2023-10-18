@@ -99,8 +99,8 @@ function bookRender({
       <p class="author">${author}</p>
       <p class="description" data-category="${list_name}">${description}</p>
       <div class="link-wraper">
-        <a class="book-link link amazon-by-link" href="${buy_links[0].url}"><img src="${amazonLink}" alt="Amazon" /></a>
-        <a class="book-link link apple-books-by-link" href="${buy_links[1].url}"><img src="${appleLink}" alt="Apple" /></a>
+        <a class="book-link link amazon-by-link" href="${buy_links[0].url}" target="_blank" rel="noopener noreferrer"><img src="${amazonLink}" alt="Amazon" /></a>
+        <a class="book-link link apple-books-by-link" href="${buy_links[1].url}" target="_blank" rel="noopener noreferrer"><img src="${appleLink}" alt="Apple" /></a>
       </div>
       </div>
       </div>
