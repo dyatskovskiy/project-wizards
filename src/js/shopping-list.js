@@ -78,7 +78,7 @@ function createMarkup(books) {
 }
 
 function onDeleteBtnClick(e) {
-  if (!e.target.classList.contains('delete-btn-shop-list') && !e.target.classList.contains('trash-icon')) {
+  if (!e.target.classList.contains('delete-btn-shop-list')) {
     return;
   }
 
