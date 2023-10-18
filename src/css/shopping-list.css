@@ -5,6 +5,7 @@
 }
 
 .shop-list-title {
+  color: var(--primary-text-color);
   line-height: 1.18;
   font-size: 32px;
   letter-spacing: -1.28px;
@@ -44,6 +45,7 @@
 }
 
 .title-shop-list {
+  color: var(--primary-text-color);
   max-width: 144px;
   height: 18px;
   white-space: nowrap;

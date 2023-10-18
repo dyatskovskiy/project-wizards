@@ -1,8 +1,9 @@
 .shopping-wrap-desk {
+    background-color: var(--bg-shoping-list);
     padding: 40px 20px;
 }
 .shopping-title {
-    color: #111;
+    color: var(--current-link-color);
     font-family: DM Sans;
     font-size: 32px;
     font-style: normal;
@@ -16,7 +17,7 @@
     color: #4F2EE8;
 }
 .shopping-text {
-    color: rgba(0, 0, 0, 0.60);
+    color: var(--txt-shoping-list);
     text-align: center;
     font-family: DM Sans;
     font-size: 14px;
