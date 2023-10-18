@@ -27,4 +27,5 @@ window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
   refs.mobileMenu.classList.remove('js-is-open');
   refs.openMenuBtn.classList.remove('js-is-hide');
   refs.closeMenuBtn.classList.add('js-is-hide');
+  refs.body.classList.remove('noscroll');
 });
