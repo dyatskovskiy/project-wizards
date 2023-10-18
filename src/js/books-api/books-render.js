@@ -100,7 +100,6 @@ async function renderCategoryOfBooks(books) {
   );
   return bookMarkup.join('');
 
-  loaderIcon.classList.add('visually-hidden');
 }
 
 renderTopBooks(topBooksData);

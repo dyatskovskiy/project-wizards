@@ -1,6 +1,17 @@
 import { fetchBookById } from '../books-api/books-api';
+import {  Loading } from 'notiflix';
 const booksContainer = document.querySelector('.books-container');
 export const STORAGE_KEY = 'booksShopingList';
+
+Loading.dots('Loading the book...', {
+  backgroundColor: '#11111130',
+  svgColor: '#4F2EE8',
+  svgSize: '150px',
+  messageColor: '#111111',
+  messageFontSize: '16px'
+});
+
+const loaderIcon = document.querySelector('.notiflix-loading');
 
 
 // Вибір елементів DOM для модального вікна
@@ -58,6 +69,8 @@ document.addEventListener('keydown', function (e) {
 ///////////
 // Функція для обробки кліку на книгу
 function onBookClick(e) {
+  loaderIcon.classList.remove('visually-hidden');
+
   e.preventDefault();
   const bookLink = e.target.closest('.book_link');
   if (!bookLink) {
@@ -159,6 +172,8 @@ function bookRender({
       localStorage.removeItem(STORAGE_KEY);
     }
   }
+
+  loaderIcon.classList.add('visually-hidden');
 }
 
 // Функция для проверки, добавлена ли книга в список покупок
