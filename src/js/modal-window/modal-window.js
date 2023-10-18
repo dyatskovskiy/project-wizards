@@ -69,13 +69,14 @@ document.addEventListener('keydown', function (e) {
 ///////////
 // Функція для обробки кліку на книгу
 function onBookClick(e) {
-  loaderIcon.classList.remove('visually-hidden');
 
   e.preventDefault();
   const bookLink = e.target.closest('.book_link');
   if (!bookLink) {
     return;
   }
+  loaderIcon.classList.remove('visually-hidden');
+
   fetchBookById(bookLink.id).then(bookData => {
     bookRender(bookData);
   });
