@@ -21,6 +21,7 @@
 .container-modal {
   margin: 0 auto;
   padding: 40px 24px;
+  min-width: 320px;
   max-width: 335px;
   min-height: 762px;
   position: fixed;
@@ -206,6 +207,7 @@
 @media screen and (min-width: 768px) {
   .container-modal {
     padding: 40px 40px;
+    min-width: 579px;
     max-width: 579px;
     min-height: 465px;
   }
