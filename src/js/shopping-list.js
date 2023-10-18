@@ -9,16 +9,16 @@ const refs = {
   booksContainerShop: document.querySelector('.books-container-shop-list'),
   containerShopList: document.querySelector('.container-shop-list'),
   shoppingWrapDesk: document.querySelector('.shopping-wrap-desk'),
-  // homeLink: document.querySelector('.header-link-nav-li.home'),
-  // mobHomeLink: document.querySelector('.burger-link-nav-li.home'),
-  // shoppingListLink: document.querySelector('.header-link-nav-li.shopping'),
-  // mobShoppingListLink: document.querySelector('.burger-link-nav-li.shopping'),
+  homeLink: document.querySelector('.header-link-nav-li.home'),
+  mobHomeLink: document.querySelector('.burger-link-nav-li.home'),
+  shoppingListLink: document.querySelector('.header-link-nav-li.shopping'),
+  mobShoppingListLink: document.querySelector('.burger-link-nav-li.shopping'),
 };
 
-// refs.homeLink.classList.remove('current');
-// refs.shoppingListLink.classList.add('current');
-// refs.mobHomeLink.classList.remove('current');
-// refs.mobShoppingListLink.classList.add('current');
+refs.homeLink.classList.remove('current');
+refs.shoppingListLink.classList.add('current');
+refs.mobHomeLink.classList.remove('current');
+refs.mobShoppingListLink.classList.add('current');
 
 function getBooks(key) {
   const savedBooks = localStorage.getItem(key);
