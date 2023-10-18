@@ -26,8 +26,8 @@
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
   background: #fff;
-  padding: 14px;
-  gap: 14px;
+  padding: 12px;
+  /* gap: 14px; */
   position: relative;
 }
 
@@ -40,7 +40,8 @@
 .right-card-part {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  margin-left: 14px;
 }
 
 .title-shop-list {
@@ -82,21 +83,55 @@
 
 .card-bottom-shop-list {
   display: flex;
-  justify-content: space-between;
+  margin-top: auto;
+  align-items: flex-end;
+  /* justify-content: space-between; */
 }
 
 .author-shop-list {
+  width: 129px;
+  height: 14px;
   color: #b4afaf;
   font-size: 12px;
   font-style: italic;
   line-height: 1.167;
   letter-spacing: -0.48px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .links-shop-list {
+  width: 56px;
   display: flex;
-  justify-content: center;
-  gap: 8px;
+  /* justify-content: space-between; */
+  align-items: flex-end;
+  margin-left: auto;
+}
+
+.amazon-img-shop-list {
+  width: 32px;
+  height: 11px;
+  margin-right: 8px;
+  background: lightgray 0px -0.889px / 100% 105.556% no-repeat;
+  mix-blend-mode: luminosity;
+  background-color: transparent;
+}
+
+.amazon-img-shop-list:hover {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
+}
+
+.apple-img-shop-list {
+  width: 16px;
+  height: 16px;
+  background: lightgray 0px -0.889px / 100% 105.556% no-repeat;
+  mix-blend-mode: luminosity;
+  background-color: transparent;
+}
+
+.apple-img-shop-list:hover {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
 }
 
 .delete-btn-shop-list {
@@ -108,11 +143,24 @@
   border-radius: 50;
   background-color: #4f2ee8;
   border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-btn-shop-list:hover {
+  box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.15);
+}
+
+.trash-icon {
+  fill: transparent;
+  stroke: white;
+  width: 16px;
+  height: 16px;
 }
 
 @media screen and (min-width: 768px) {
   .container-shop-list {
-    max-width: 744px;
+    max-width: 768px;
     padding: 40px 32px;
   }
 
@@ -123,13 +171,16 @@
   }
 
   .book-card-shop-list {
-    padding: 24px;
-    gap: 24px;
+    padding: 22px;
   }
 
   .img-shop-list {
     width: 116px;
     height: 165px;
+  }
+
+  .right-card-part {
+    margin-left: 24px;
   }
 
   .title-shop-list {
@@ -146,8 +197,27 @@
     height: 53px;
   }
 
+  .card-bottom-shop-list {
+    width: 516px;
+  }
+
+  .author-shop-list {
+    width: 416px;
+  }
+
   .links-shop-list {
-    gap: 16px;
+    width: 92px;
+  }
+
+  .amazon-img-shop-list {
+    width: 48px;
+    height: 15px;
+    margin-right: 16px;
+  }
+
+  .apple-img-shop-list {
+    width: 28px;
+    height: 27px;
   }
 
   .delete-btn-shop-list {
@@ -156,15 +226,24 @@
     width: 34px;
     height: 34px;
   }
+
+  .trash-icon {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-.container-shop-list {
-  max-width: 996px;
-  padding: 0;
-  margin-left: auto;
-}
-.description-shop-list {
-  width: 808px;
-}
+  .container-shop-list {
+    max-width: 996px;
+    margin: 40px 24px 40px 40px;
+    padding: 0;
+  }
+  .description-shop-list {
+    width: 808px;
+  }
+
+  .card-bottom-shop-list {
+    width: 808px;
+  }
 }

@@ -2,11 +2,23 @@ import './support/support-render';
 import './header'
 export const key = 'booksShopingList';
 const booksArray = [];
+const amazonLink = new URL('../img/stores-icons/amazon.png', import.meta.url);
+const appleLink = new URL('../img/stores-icons/apple.png', import.meta.url);
+const trashIcon = new URL('../public/symbol-defs.svg', import.meta.url);
 const refs = {
   booksContainerShop: document.querySelector('.books-container-shop-list'),
   containerShopList: document.querySelector('.container-shop-list'),
   shoppingWrapDesk: document.querySelector('.shopping-wrap-desk'),
+  // homeLink: document.querySelector('.header-link-nav-li.home'),
+  // mobHomeLink: document.querySelector('.burger-link-nav-li.home'),
+  // shoppingListLink: document.querySelector('.header-link-nav-li.shopping'),
+  // mobShoppingListLink: document.querySelector('.burger-link-nav-li.shopping'),
 };
+
+// refs.homeLink.classList.remove('current');
+// refs.shoppingListLink.classList.add('current');
+// refs.mobHomeLink.classList.remove('current');
+// refs.mobShoppingListLink.classList.add('current');
 
 function getBooks(key) {
   const savedBooks = localStorage.getItem(key);
@@ -35,7 +47,7 @@ function createMarkup(books) {
                     href="${amazon}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >amaz</a
+                    ><img class="amazon-img-shop-list" src="${amazonLink}" alt="Amazon" /></a
                   >
                 </li>
                 <li>
@@ -43,13 +55,17 @@ function createMarkup(books) {
                     href="${apple}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >app</a
+                    ><img class="apple-img-shop-list" src="${appleLink}" alt="Apple"</a
                   >
                 </li>
               </ul>
             </div>
           </div>
-          <button class="delete-btn-shop-list" type="button"></button>
+          <button class="delete-btn-shop-list" type="button">
+            <svg class="trash-icon">
+             <use href="${trashIcon}#icon-trash"></use>
+            </svg>
+          </button>
         </li>
       `;
     })
