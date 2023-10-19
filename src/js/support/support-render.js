@@ -8,7 +8,7 @@ function renderPartners() {
     const html = data.map(({ title, url, img }, i) =>
         `<li class="support-list-item">
             <div class="support-number">0${i + 1}</div>
-            <a href="${url}" class="support-logo">
+            <a href="${url}" class="support-logo" target="_blank" rel="noopener noreferrer">
                 <img src="${img}" class="partner-logo"
                     alt="${title}"
                     title="${title}"/>
