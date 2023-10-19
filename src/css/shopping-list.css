@@ -14,7 +14,7 @@
 }
 
 .last-word-shop-list {
-  color: var(--violet-text-color);
+  color: #4f2ee8;
 }
 
 .books-container-shop-list {
@@ -166,7 +166,7 @@ body.dark-theme .apple-img-shop-list:hover {
   width: 28px;
   height: 28px;
   border-radius: 50;
-  background-color: var(--violet-text-color);
+  background-color: #4f2ee8;
   border: 0;
   display: flex;
   align-items: center;
