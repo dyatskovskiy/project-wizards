@@ -1,10 +1,13 @@
 :root {
   --body-bg-color: #f6f6f6;
+  --body-bg-color-transition: 0.3s;
   --header-bg-color: #ffffff;
+  --header-bg-color-transition: 0.3s;
   --current-link-color: #111111;
   --categories-link-color: #11111199;
   --black-text-color: #000000;
   --primary-text-color: #111111;
+  --primary-text-color-transition: 0.3s;
   --grey-text-color: #b4afaf;
   --violet-text-color: #4f2ee8;
   --yellow-color: #eac645;
@@ -18,6 +21,7 @@
 body {
   font-family: 'DM Sans';
   background: var(--body-bg-color);
+  transition: background-color var(--body-bg-color-transition);
 }
 
 .list {

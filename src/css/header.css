@@ -9,6 +9,7 @@
     border: 1.5px solid var(--primary-text-color);
     border-radius: 0px 0px 8px 8px;
     background-color: var(--header-bg-color);
+    transition: background-color var(--header-bg-color-transition);
     max-width: 375px;
     padding: 18px 20px;
     margin-left: auto;
