@@ -87,7 +87,7 @@
 .see-more-btn:hover,
 .see-more-btn:focus {
   color: var(--header-bg-color);
-  background-color: var(--violet-text-color);
+  background-color: #4f2ee8;
 }
 
 .top-books-category-list li:nth-last-child(-n + 4) {
