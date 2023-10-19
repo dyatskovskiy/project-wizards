@@ -7,7 +7,6 @@ themeToggle.addEventListener('change', onCheckboxClick)
 
 function onCheckboxClick () {
   const darkThemeStatus = localStorage.getItem(DARK_THEME_KEY);
-  console.log(darkThemeStatus);
   if(darkThemeStatus === null) {
     localStorage.setItem(DARK_THEME_KEY, 'true')
     setDarkTheme();
