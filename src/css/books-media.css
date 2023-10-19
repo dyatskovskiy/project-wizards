@@ -72,7 +72,7 @@
     line-height: 1.28;
     text-align: center;
     text-transform: uppercase;
-    background-color: #eac645;
+    background-color: var(--yellow-color);
     border-radius: 0px 0px 8px 8px;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
