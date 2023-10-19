@@ -3,12 +3,10 @@ import {  Loading } from 'notiflix';
 const booksContainer = document.querySelector('.books-container');
 export const STORAGE_KEY = 'booksShopingList';
 
-Loading.dots('Loading the book...', {
+Loading.dots( {
   backgroundColor: '#11111130',
   svgColor: '#4F2EE8',
   svgSize: '150px',
-  messageColor: '#111111',
-  messageFontSize: '16px'
 });
 
 const loaderIcon = document.querySelector('.notiflix-loading');
