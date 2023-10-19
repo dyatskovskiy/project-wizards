@@ -6,6 +6,7 @@
 
 .shop-list-title {
   color: var(--primary-text-color);
+  transition: var(--primary-text-color-transition);
   line-height: 1.18;
   font-size: 32px;
   letter-spacing: -1.28px;
@@ -26,7 +27,8 @@
   display: flex;
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
-  background: #fff;
+  background: var(--header-bg-color);
+  transition: background-color var(--header-bg-color-transition);
   padding: 12px;
   /* gap: 14px; */
   position: relative;
@@ -47,6 +49,7 @@
 
 .title-shop-list {
   color: var(--primary-text-color);
+  transition: var(--primary-text-color-transition);
   max-width: 144px;
   height: 18px;
   white-space: nowrap;
@@ -83,6 +86,8 @@
   max-height: 68px;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  color: var(--primary-text-color);
+  transition: var(--primary-text-color-transition);
 }
 
 .card-bottom-shop-list {
