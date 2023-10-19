@@ -63,7 +63,7 @@
 }
 
 .category-shop-list {
-  color: #b4afaf;
+  color: var(--grey-text-color);
   font-size: 12px;
   line-height: 1.167;
   letter-spacing: 0.36px;
@@ -100,7 +100,7 @@
 .author-shop-list {
   width: 129px;
   height: 14px;
-  color: #b4afaf;
+  color: var(--grey-text-color);
   font-size: 12px;
   font-style: italic;
   line-height: 1.167;
