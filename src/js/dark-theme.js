@@ -1,4 +1,5 @@
 const root = document.documentElement;
+const body = document.body;
 const themeToggle = document.querySelector('.theme_checkbox');
 const DARK_THEME_KEY = 'isDark'
 themeToggle.addEventListener('change', onCheckboxClick)
@@ -29,6 +30,7 @@ window.onload = () => {                                  // При завант�
 
 
 function setDarkTheme () {
+  body.classList.add('dark-theme');
   root.style.setProperty('--body-bg-color', '#202024');
   root.style.setProperty('--header-bg-color', '#111111');
   root.style.setProperty('--primary-text-color', '#ffffff');
@@ -44,6 +46,7 @@ function setDarkTheme () {
 }
 
 function setLightTheme() {
+  body.classList.remove('dark-theme');
   root.style.setProperty('--body-bg-color', '#f6f6f6');
   root.style.setProperty('--header-bg-color', '#ffffff');
   root.style.setProperty('--primary-text-color', '#111111');
