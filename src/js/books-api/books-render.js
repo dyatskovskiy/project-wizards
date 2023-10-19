@@ -9,12 +9,10 @@ const categoryesListEl = document.querySelector('.categories__list');
 
 categoryesListEl.addEventListener('click', onCategoryClick);
 
-Loading.dots('Loading the books...', {
+Loading.dots( {
   backgroundColor: '#11111130',
   svgColor: '#4F2EE8',
   svgSize: '150px',
-  messageColor: '#111111',
-  messageFontSize: '16px',
 });
 
 const loaderIcon = document.querySelector('.notiflix-loading');
