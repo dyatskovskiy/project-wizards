@@ -5,7 +5,7 @@ export const key = 'booksShopingList';
 const booksArray = [];
 const amazonLink = new URL('../img/stores-icons/image-am.png', import.meta.url);
 const appleLink = new URL('../img/stores-icons/image-ap.png', import.meta.url);
-const trashIcon = new URL('../public/symbol-defs.svg', import.meta.url);
+const trashIcon = new URL('../img/icons.svg', import.meta.url);
 const refs = {
   booksContainerShop: document.querySelector('.books-container-shop-list'),
   containerShopList: document.querySelector('.container-shop-list'),
