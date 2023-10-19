@@ -1,7 +1,7 @@
 .container-shop-list {
   max-width: 375px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 0 20px;
 }
 
 .shop-list-title {
@@ -185,7 +185,7 @@ body.dark-theme .apple-img-shop-list:hover {
 @media screen and (min-width: 768px) {
   .container-shop-list {
     max-width: 768px;
-    padding: 40px 32px;
+    padding: 0 32px;
   }
 
   .shop-list-title {
@@ -260,7 +260,8 @@ body.dark-theme .apple-img-shop-list:hover {
 @media screen and (min-width: 1440px) {
   .container-shop-list {
     max-width: 996px;
-    margin: 40px 24px 40px 40px;
+    margin-left: 40px;
+    margin-right: auto;
     padding: 0;
   }
   .description-shop-list {
